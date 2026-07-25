@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bell } from "lucide-react";
+import { Bell } from "@/components/icons";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { safe } from "@/server/queries/content";

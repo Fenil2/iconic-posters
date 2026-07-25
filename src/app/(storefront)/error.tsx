@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 
 export default function StorefrontError({

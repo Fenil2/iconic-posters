@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useRef } from "react";
-import { Expand, ChevronLeft, ChevronRight } from "lucide-react";
+import { Expand, ChevronLeft, ChevronRight } from "@/components/icons";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import type { ProductImageData } from "@/types";

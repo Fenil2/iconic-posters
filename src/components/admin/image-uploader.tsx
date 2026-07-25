@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { CldUploadWidget } from "next-cloudinary";
-import { UploadCloud, X, Link2, Star, GripVertical } from "lucide-react";
+import { UploadCloud, X, Link2, Star, GripVertical } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";

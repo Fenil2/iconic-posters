@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Package } from "lucide-react";
+import { Package } from "@/components/icons";
 import { getCurrentUser } from "@/lib/auth";
 import { getUserOrders } from "@/server/queries/orders";
 import { safe } from "@/server/queries/content";

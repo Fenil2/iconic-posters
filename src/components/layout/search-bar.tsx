@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Search, Mic, TrendingUp, Clock, X } from "lucide-react";
+import { Search, Mic, TrendingUp, Clock, X } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { popularSearches } from "@/config/navigation";
 

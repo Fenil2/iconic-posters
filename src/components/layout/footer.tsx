@@ -1,40 +1,45 @@
 import Link from "next/link";
-import { AtSign, Send, Share2 } from "lucide-react";
+import { Instagram, Facebook, Youtube } from "@/components/icons";
 import { Logo } from "./logo";
 import { NewsletterForm } from "@/components/shared/newsletter-form";
 import { siteConfig } from "@/config/site";
 
 const columns: { title: string; links: { label: string; href: string }[] }[] = [
   {
-    title: "Shop",
+    title: "Quick Links",
     links: [
-      { label: "New Arrivals", href: "/new-arrivals" },
-      { label: "Best Sellers", href: "/best-sellers" },
-      { label: "Limited Edition", href: "/collection/limited-edition" },
-      { label: "Sale", href: "/sale" },
-      { label: "Gift Cards", href: "/gift-cards" },
+      { label: "Home", href: "/" },
+      { label: "Shop", href: "/shop" },
+      { label: "Collections", href: "/collections" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "FAQs", href: "/faq" },
+    ],
+  },
+  {
+    title: "Policies",
+    links: [
+      { label: "Shipping Policy", href: "/shipping" },
+      { label: "Return & Refund Policy", href: "/returns" },
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms & Conditions", href: "/terms" },
     ],
   },
   {
     title: "Help",
     links: [
       { label: "Track Order", href: "/track-order" },
-      { label: "Shipping & Delivery", href: "/shipping" },
-      { label: "Returns & Refunds", href: "/returns" },
-      { label: "FAQs", href: "/faq" },
-      { label: "Contact Us", href: "/contact" },
+      { label: "My Account", href: "/account" },
+      { label: "New Arrivals", href: "/new-arrivals" },
+      { label: "Best Sellers", href: "/best-sellers" },
     ],
   },
-  {
-    title: "Company",
-    links: [
-      { label: "Our Story", href: "/about" },
-      { label: "Journal", href: "/blog" },
-      { label: "Artists", href: "/artists" },
-      { label: "Sustainability", href: "/sustainability" },
-      { label: "Careers", href: "/careers" },
-    ],
-  },
+];
+
+const socials = [
+  { label: "Instagram", icon: Instagram, href: siteConfig.social.instagram },
+  { label: "Facebook", icon: Facebook, href: siteConfig.social.facebook },
+  { label: "YouTube", icon: Youtube, href: siteConfig.social.youtube },
 ];
 
 export function Footer() {
@@ -45,24 +50,27 @@ export function Footer() {
           <div className="space-y-4">
             <Logo />
             <p className="max-w-xs text-sm text-muted-foreground">
-              {siteConfig.description}
+              Premium posters designed to make every wall iconic.
             </p>
-            <div className="flex gap-2">
-              {[
-                { icon: AtSign, href: siteConfig.social.instagram },
-                { icon: Send, href: siteConfig.social.twitter },
-                { icon: Share2, href: siteConfig.social.youtube },
-              ].map(({ icon: Icon, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="grid size-10 place-items-center rounded-full border border-border transition-colors hover:bg-background"
-                >
-                  <Icon className="size-4" />
-                </a>
-              ))}
+            <div>
+              <h4 className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                Follow Us
+              </h4>
+              <div className="flex gap-2">
+                {socials.map(({ label, icon: Icon, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    title={label}
+                    className="grid size-10 place-items-center rounded-full border border-border transition-colors hover:bg-background"
+                  >
+                    <Icon className="size-4" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -89,11 +97,10 @@ export function Footer() {
 
         <div className="mt-14 grid gap-8 border-t pt-10 lg:grid-cols-[1.4fr_2fr] lg:items-center">
           <div>
-            <h4 className="font-serif text-xl font-semibold">
-              Join the PULSE list
-            </h4>
+            <h4 className="font-serif text-xl font-semibold">Stay Updated</h4>
             <p className="mt-1 text-sm text-muted-foreground">
-              Early access to drops, artist stories and 10% off your first order.
+              Never miss new collections, exclusive launches, limited editions
+              and exciting offers.
             </p>
           </div>
           <NewsletterForm />
@@ -114,7 +121,12 @@ export function Footer() {
             <Link href="/shipping" className="hover:text-foreground">
               Shipping
             </Link>
-            <span>{siteConfig.contact.email}</span>
+            <a
+              href={`mailto:${siteConfig.contact.email}`}
+              className="hover:text-foreground"
+            >
+              {siteConfig.contact.email}
+            </a>
           </div>
         </div>
       </div>

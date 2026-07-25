@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";
-import { CreditCard, Banknote, Loader2, Lock, ShoppingBag } from "lucide-react";
+import { CreditCard, Banknote, Loader2, Lock, ShoppingBag } from "@/components/icons";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

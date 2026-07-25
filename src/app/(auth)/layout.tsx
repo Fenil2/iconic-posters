@@ -35,10 +35,10 @@ export default function AuthLayout({
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
         <div className="absolute bottom-0 p-12 text-white">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/60">
-            PULSE Editions
+            Iconik Editions
           </p>
           <h2 className="mt-3 max-w-sm font-serif text-3xl font-semibold leading-tight">
-            Museum-grade prints for walls with something to say.
+            Your walls deserve more than empty space.
           </h2>
         </div>
       </div>

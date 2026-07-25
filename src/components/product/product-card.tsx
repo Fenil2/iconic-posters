@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Heart, ShoppingBag } from "lucide-react";
+import { Heart, ShoppingBag } from "@/components/icons";
 import { useState } from "react";
 import { toast } from "sonner";
 import { cn, formatPrice } from "@/lib/utils";

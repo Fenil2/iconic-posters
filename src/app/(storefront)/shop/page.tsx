@@ -5,9 +5,9 @@ import { parseFilters } from "@/lib/filters";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Shop All Posters",
+  title: "Shop Premium Posters",
   description:
-    "Browse the full PULSE collection — bikes, cars, heroes & heroines, nature and anime posters. Premium archival prints with framing options.",
+    "Discover posters that match your vibe. Browse hundreds of carefully curated movie, anime, gaming, car, music, aesthetic and minimal wall posters — premium printing, secure packaging, fast shipping across India.",
   alternates: { canonical: "/shop" },
 };
 
@@ -20,8 +20,8 @@ export default async function ShopPage({
   return (
     <ProductListing
       filters={filters}
-      title="All Posters"
-      description="The complete collection — every category, every drop."
+      title="Shop Premium Posters"
+      description="Discover posters that match your vibe. Browse through hundreds of carefully curated designs across different categories."
       breadcrumb={[{ label: "Shop", href: "/shop" }]}
     />
   );

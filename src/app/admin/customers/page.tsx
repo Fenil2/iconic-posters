@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Users } from "lucide-react";
+import { Users } from "@/components/icons";
 import { getAdminCustomers } from "@/server/queries/admin";
 import { safe } from "@/server/queries/content";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

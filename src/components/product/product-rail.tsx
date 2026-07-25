@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "@/components/icons";
 import { ProductCard } from "./product-card";
 import { SectionHeading } from "@/components/shared/section-heading";
 import type { ProductCardData } from "@/types";

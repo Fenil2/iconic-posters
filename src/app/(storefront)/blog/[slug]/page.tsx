@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "@/components/icons";
 import { prisma } from "@/lib/prisma";
 import { safe } from "@/server/queries/content";
 import { formatDate } from "@/lib/utils";

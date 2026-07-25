@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Plus, Package, Search } from "lucide-react";
+import { Plus, Package, Search } from "@/components/icons";
 import { getAdminProducts } from "@/server/queries/admin";
 import { safe } from "@/server/queries/content";
 import { Button } from "@/components/ui/button";

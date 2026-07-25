@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, Heart } from "lucide-react";
+import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, Heart } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { OrderSummary } from "@/components/checkout/order-summary";

@@ -29,7 +29,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    default: siteConfig.seoHeadline,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: siteConfig.url,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    title: siteConfig.seoHeadline,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
@@ -86,7 +86,11 @@ export default function RootLayout({
             name: siteConfig.legalName,
             url: siteConfig.url,
             logo: `${siteConfig.url}/icon-512.png`,
-            sameAs: Object.values(siteConfig.social),
+            sameAs: [
+              siteConfig.social.instagram,
+              siteConfig.social.facebook,
+              siteConfig.social.youtube,
+            ],
             contactPoint: {
               "@type": "ContactPoint",
               email: siteConfig.contact.email,

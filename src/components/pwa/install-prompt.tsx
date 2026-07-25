@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Download, X } from "lucide-react";
+import { Download, X } from "@/components/icons";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -53,7 +53,7 @@ export function InstallPrompt() {
         <Download className="size-5" />
       </div>
       <div className="flex-1">
-        <p className="text-sm font-medium">Install PULSE</p>
+        <p className="text-sm font-medium">Install Iconik Posters</p>
         <p className="text-xs text-muted-foreground">
           Add to your home screen for a faster, app-like experience.
         </p>

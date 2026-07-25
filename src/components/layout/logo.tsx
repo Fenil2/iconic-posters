@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-/** PULSE wordmark — Fraunces display serif with a pulse accent dot. */
+/** Iconik Posters wordmark — Fraunces display serif with a brass accent dot. */
 export function Logo({ className }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="PULSE home"
+      aria-label="Iconik Posters home"
       className={cn(
-        "font-serif text-2xl font-semibold tracking-tight leading-none",
+        "font-serif text-2xl font-semibold tracking-tight leading-none whitespace-nowrap",
         className,
       )}
     >
-      PULSE
+      ICONIK
       <span className="text-accent">.</span>
     </Link>
   );

@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 /*
- * PULSE — Design System tokens
+ * Iconik Posters — Design System tokens
  * Editorial gallery minimalism: ink/paper monochrome + warm brass accent.
  * These are the ONLY custom CSS declarations in the project; every component
  * is styled with inline Tailwind utility classes that read from these tokens.

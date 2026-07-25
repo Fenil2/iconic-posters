@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────
-// PULSE — Prisma schema (Neon PostgreSQL)
+// Iconik Posters — Prisma schema (Neon PostgreSQL)
 // Enterprise e-commerce data model for a premium poster store.
 // ─────────────────────────────────────────────────────────────
 
@@ -695,7 +695,7 @@ model Blog {
   excerpt     String?
   content     String   @db.Text
   coverImage  String?
-  author      String   @default("PULSE Editorial")
+  author      String   @default("Iconik Posters")
   tags        String[]
   category    String?
   isPublished Boolean  @default(false)

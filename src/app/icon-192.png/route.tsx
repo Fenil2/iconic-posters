@@ -18,7 +18,7 @@ export function GET() {
           fontFamily: "serif",
         }}
       >
-        P<span style={{ color: "#c08a2d" }}>.</span>
+        I<span style={{ color: "#c08a2d" }}>.</span>
       </div>
     ),
     { width: 192, height: 192 },

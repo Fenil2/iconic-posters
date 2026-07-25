@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check } from "@/components/icons";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 

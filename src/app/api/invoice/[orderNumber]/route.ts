@@ -53,7 +53,7 @@ export async function GET(
     @media print{body{margin:0}}
   </style></head><body onload="window.print()">
     <div class="row">
-      <div><h1>PULSE<span style="color:#c08a2d">.</span></h1><p class="muted">${siteConfig.contact.address}</p></div>
+      <div><h1>ICONIK<span style="color:#c08a2d">.</span></h1><p class="muted">${siteConfig.legalName} · ${siteConfig.contact.address}</p></div>
       <div style="text-align:right">
         <p class="muted">Invoice</p>
         <strong>${order.orderNumber}</strong>

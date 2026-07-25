@@ -204,7 +204,7 @@ export async function getAdminProductForEdit(id: string) {
       theme: p.theme ?? "",
       color: p.color ?? "",
       artist: p.artist ?? "",
-      brand: p.brand ?? "PULSE",
+      brand: p.brand ?? "Iconik Posters",
       isFeatured: p.isFeatured,
       isBestSeller: p.isBestSeller,
       isNewArrival: p.isNewArrival,

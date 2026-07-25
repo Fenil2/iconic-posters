@@ -1,4 +1,4 @@
-# PULSE — Premium Poster Store
+# Iconik Posters — Premium Poster Store
 
 A production-ready, single-seller e-commerce platform for premium wall-art posters
 (Bikes · Cars · Heroes & Heroines · Nature · Anime). Built with the Next.js App Router,
@@ -33,7 +33,7 @@ pnpm db:seed                 # seed the 5 categories, demo products, admin, coup
 pnpm dev                     # http://localhost:3000
 ```
 
-Seeded admin login: **admin@pulse.store** / **Admin@12345** → visit `/admin`.
+Seeded admin login: **admin@iconikposters.in** / **Admin@12345** → visit `/admin`.
 
 ### Required environment variables
 

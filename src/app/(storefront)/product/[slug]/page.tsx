@@ -31,7 +31,7 @@ export async function generateMetadata({
     title,
     description:
       product.shortDescription ??
-      `Buy ${product.name} at ${siteConfig.name}. Premium archival print, multiple sizes & framing.`,
+      `Buy ${product.name} at ${siteConfig.name}. Premium wall poster with high-quality printing, multiple sizes and framing options.`,
     alternates: { canonical: `/product/${slug}` },
     openGraph: {
       title,
@@ -77,7 +77,7 @@ export default async function ProductPage({ params }: { params: Params }) {
     image: product.images.map((i) => i.url),
     description: product.shortDescription ?? product.description,
     sku: product.sku,
-    brand: { "@type": "Brand", name: product.brand ?? "PULSE" },
+    brand: { "@type": "Brand", name: product.brand ?? "Iconik Posters" },
     aggregateRating:
       product.ratingCount > 0
         ? {

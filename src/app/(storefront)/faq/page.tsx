@@ -11,13 +11,18 @@ import {
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "FAQs",
-  description: "Answers about our prints, shipping, returns and more.",
+  description:
+    "Answers about shipping across India, delivery times, framing, poster sizes, Cash on Delivery and order tracking.",
+  alternates: { canonical: "/faq" },
 };
 
 const FALLBACK = [
-  { id: "1", question: "What paper do you print on?", answer: "Archival, acid-free 200–260gsm stock with pigment inks rated for 100+ years.", category: "Products" },
-  { id: "2", question: "How long does delivery take?", answer: "Unframed prints ship in 2–4 business days; framed in 4–7 days, with tracking.", category: "Shipping" },
-  { id: "3", question: "What is your return policy?", answer: "7-day returns on unframed prints in original condition. Framed & limited editions are made-to-order.", category: "Returns" },
+  { id: "1", question: "Do you ship across India?", answer: "Yes. We deliver across India.", category: "Shipping" },
+  { id: "2", question: "How long does shipping take?", answer: "Orders are usually delivered within 3–7 business days depending on your location.", category: "Shipping" },
+  { id: "3", question: "Are the posters framed?", answer: "We offer both framed and unframed options, depending on the product.", category: "Products" },
+  { id: "4", question: "What sizes are available?", answer: "Multiple sizes are available. Please check the product page for details.", category: "Products" },
+  { id: "5", question: "Is Cash on Delivery available?", answer: "Availability depends on your location.", category: "Payments" },
+  { id: "6", question: "How can I track my order?", answer: "You'll receive tracking details once your order is shipped.", category: "Orders" },
 ];
 
 export default async function FaqPage() {

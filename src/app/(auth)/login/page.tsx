@@ -5,7 +5,7 @@ import { LoginForm } from "@/components/auth/login-form";
 
 export const metadata: Metadata = {
   title: "Sign in",
-  description: "Sign in to your PULSE account.",
+  description: "Sign in to your Iconik Posters account.",
 };
 
 export default function LoginPage() {
@@ -16,7 +16,7 @@ export default function LoginPage() {
           Welcome back
         </h1>
         <p className="text-sm text-muted-foreground">
-          Sign in to continue to PULSE.
+          Sign in to continue to Iconik Posters.
         </p>
       </div>
 
@@ -25,7 +25,7 @@ export default function LoginPage() {
       </Suspense>
 
       <p className="text-center text-sm text-muted-foreground">
-        New to PULSE?{" "}
+        New to Iconik Posters?{" "}
         <Link href="/signup" className="font-medium text-foreground underline-offset-4 hover:underline">
           Create an account
         </Link>

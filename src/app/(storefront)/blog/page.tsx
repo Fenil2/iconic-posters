@@ -8,7 +8,7 @@ import { formatDate } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Journal",
-  description: "Guides, design stories and styling tips from the PULSE studio.",
+  description: "Guides, design stories and styling tips from the Iconik Posters studio.",
 };
 
 export default async function BlogPage() {

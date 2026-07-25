@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
-/** Generated app/favicon icon — PULSE monogram on ink. */
+/** Generated app/favicon icon — Iconik Posters monogram on ink. */
 export default function Icon() {
   return new ImageResponse(
     (
@@ -22,7 +22,7 @@ export default function Icon() {
           borderRadius: 12,
         }}
       >
-        P<span style={{ color: "#c08a2d" }}>.</span>
+        I<span style={{ color: "#c08a2d" }}>.</span>
       </div>
     ),
     { ...size },

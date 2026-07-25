@@ -1,70 +1,86 @@
 import Link from "next/link";
-import { Suspense } from "react";
-import { Truck, RotateCcw, ShieldCheck, Palette } from "lucide-react";
-import { HeroCarousel } from "@/components/home/hero-carousel";
-import { CategoryGrid } from "@/components/home/category-grid";
-import { Countdown } from "@/components/home/countdown";
+import type { Metadata } from "next";
+import { Truck, ShieldCheck, PackageCheck, Sparkles } from "@/components/icons";
+import { Hero } from "@/components/home/hero";
+import { CollectionGrid } from "@/components/home/collection-grid";
+import { WhyIconik } from "@/components/home/why-iconik";
+import { Spaces } from "@/components/home/spaces";
+import { Reviews } from "@/components/home/reviews";
 import { ProductRail } from "@/components/product/product-rail";
+import { NewsletterForm } from "@/components/shared/newsletter-form";
 import { SectionHeading } from "@/components/shared/section-heading";
 import {
-  getBestSellers,
   getTrending,
+  getBestSellers,
   getNewArrivals,
-  getLimitedEdition,
-  getFeaturedProducts,
 } from "@/server/queries/products";
 import { getHeroBanners, safe } from "@/server/queries/content";
+import { siteConfig } from "@/config/site";
 import type { BannerData } from "@/types";
 
 // Rails read the live catalogue; keep this dynamic so fresh stock shows.
 export const dynamic = "force-dynamic";
 
+export const metadata: Metadata = {
+  title: {
+    absolute: siteConfig.seoHeadline,
+  },
+  description: siteConfig.description,
+  alternates: { canonical: "/" },
+};
+
 const FALLBACK_BANNERS: BannerData[] = [
   {
     id: "f1",
-    title: "Ride the Redline",
-    subtitle: "Superbike & MotoGP prints for the speed obsessed.",
+    title: "Movie Wall",
+    subtitle: "Cult classics and blockbuster art.",
     image:
-      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1600&q=80",
-    link: "/category/bikes",
-    ctaLabel: "Shop Bikes",
+      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1600&q=80",
+    link: "/category/movies",
+    ctaLabel: "Shop Movies",
   },
   {
     id: "f2",
+    title: "Level Up Your Setup",
+    subtitle: "Gaming posters built for the battlestation.",
+    image:
+      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&q=80",
+    link: "/category/gaming",
+    ctaLabel: "Shop Gaming",
+  },
+  {
+    id: "f3",
     title: "Machines & Legends",
-    subtitle: "Supercars, JDM icons and Formula 1, framed.",
+    subtitle: "Supercars, superbikes and racing greats.",
     image:
       "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=80",
-    link: "/category/cars",
-    ctaLabel: "Shop Cars",
+    link: "/category/cars-bikes",
+    ctaLabel: "Shop Cars & Bikes",
   },
 ];
 
 const trust = [
-  { icon: Truck, title: "Free shipping", sub: "On orders over ₹999" },
-  { icon: RotateCcw, title: "7-day returns", sub: "Easy & hassle-free" },
+  { icon: Truck, title: "Fast shipping across India", sub: "3–7 business days" },
+  { icon: PackageCheck, title: "Secure packaging", sub: "Rigid, damage-proof tubes" },
   { icon: ShieldCheck, title: "Secure checkout", sub: "Razorpay protected" },
-  { icon: Palette, title: "Archival prints", sub: "100+ year fade resistance" },
+  { icon: Sparkles, title: "New designs weekly", sub: "Fresh drops, regularly" },
 ];
 
 export default async function HomePage() {
-  const [banners, best, trending, latest, limited, featured] = await Promise.all(
-    [
-      safe(getHeroBanners, []),
-      safe(() => getBestSellers(10), []),
-      safe(() => getTrending(10), []),
-      safe(() => getNewArrivals(10), []),
-      safe(() => getLimitedEdition(10), []),
-      safe(() => getFeaturedProducts(6), []),
-    ],
-  );
+  const [banners, trending, best, latest] = await Promise.all([
+    safe(getHeroBanners, []),
+    safe(() => getTrending(10), []),
+    safe(() => getBestSellers(10), []),
+    safe(() => getNewArrivals(10), []),
+  ]);
 
   const slides = banners.length ? banners : FALLBACK_BANNERS;
-  const saleEnd = new Date(Date.now() + 2 * 86400000 + 5 * 3600000);
+  // Trending is the headline rail; fall back to best sellers on a thin catalogue.
+  const trendingRail = trending.length ? trending : best;
 
   return (
     <>
-      <HeroCarousel slides={slides} />
+      <Hero slides={slides} />
 
       {/* Trust strip */}
       <div className="border-b bg-secondary/30">
@@ -84,15 +100,16 @@ export default async function HomePage() {
       </div>
 
       <div className="mx-auto max-w-[1400px] space-y-20 px-4 py-16">
-        <CategoryGrid />
+        <WhyIconik />
 
-        {best.length > 0 && (
+        <CollectionGrid />
+
+        {trendingRail.length > 0 && (
           <ProductRail
-            eyebrow="Most loved"
-            title="Best Sellers"
-            description="The prints our customers can't stop framing."
-            href="/best-sellers"
-            products={best}
+            eyebrow="Trending Posters"
+            title="Most Loved by Our Community"
+            href="/shop"
+            products={trendingRail}
           />
         )}
 
@@ -119,56 +136,16 @@ export default async function HomePage() {
           ))}
         </section>
 
-        {trending.length > 0 && (
-          <ProductRail
-            eyebrow="Right now"
-            title="Trending This Week"
-            href="/best-sellers"
-            products={trending}
-          />
-        )}
+        <div className="flex justify-center">
+          <Link
+            href="/shop"
+            className="inline-flex items-center rounded-full bg-primary px-9 py-3.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-100"
+          >
+            View All Posters
+          </Link>
+        </div>
 
-        {/* Flash sale */}
-        <section className="overflow-hidden rounded-2xl border bg-secondary/40">
-          <div className="flex flex-col items-start justify-between gap-6 p-8 sm:flex-row sm:items-center">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-destructive">
-                Flash Sale
-              </p>
-              <h2 className="mt-1 font-serif text-3xl font-semibold">
-                Today’s Deals — up to 40% off
-              </h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Hand-picked prints at collector prices. Ends soon.
-              </p>
-            </div>
-            <div className="flex flex-col items-start gap-3 sm:items-end">
-              <Countdown target={saleEnd} />
-              <Link
-                href="/sale"
-                className="inline-flex items-center rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-primary-foreground"
-              >
-                Shop the sale
-              </Link>
-            </div>
-          </div>
-          {featured.length > 0 && (
-            <div className="grid grid-cols-2 gap-px bg-border sm:grid-cols-3 lg:grid-cols-6">
-              {featured.map((p) => (
-                <Link
-                  key={p.id}
-                  href={`/product/${p.slug}`}
-                  className="group relative aspect-square overflow-hidden bg-background"
-                >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${p.image})` }}
-                  />
-                </Link>
-              ))}
-            </div>
-          )}
-        </section>
+        <Spaces />
 
         {latest.length > 0 && (
           <ProductRail
@@ -179,36 +156,17 @@ export default async function HomePage() {
           />
         )}
 
-        {limited.length > 0 && (
-          <ProductRail
-            eyebrow="Numbered & signed"
-            title="Limited Edition"
-            description="Collector prints in strictly limited runs."
-            href="/collection/limited-edition"
-            products={limited}
-          />
-        )}
+        <Reviews />
 
-        {/* Instagram gallery */}
-        <section className="space-y-6">
-          <SectionHeading
-            eyebrow="@pulse.posters"
-            title="From the community"
-            description="Tag us to be featured. Real walls, real PULSE."
-            align="center"
-          />
-          <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
-            {featured.concat(best).slice(0, 6).map((p) => (
-              <div
-                key={`ig-${p.id}`}
-                className="group relative aspect-square overflow-hidden rounded-lg bg-secondary"
-              >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${p.image})` }}
-                />
-              </div>
-            ))}
+        {/* Stay Updated */}
+        <section className="rounded-2xl border border-border bg-secondary/30 px-6 py-12 sm:px-12">
+          <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
+            <SectionHeading
+              title="Stay Updated"
+              description="Never miss new collections, exclusive launches, limited editions and exciting offers."
+              align="center"
+            />
+            <NewsletterForm />
           </div>
         </section>
       </div>

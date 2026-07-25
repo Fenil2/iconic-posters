@@ -9,7 +9,7 @@ import {
   TrendingUp,
   AlertTriangle,
   ArrowRight,
-} from "lucide-react";
+} from "@/components/icons";
 import { getAdminDashboard } from "@/server/queries/admin";
 import { safe } from "@/server/queries/content";
 import { RevenueChart } from "@/components/admin/revenue-chart";

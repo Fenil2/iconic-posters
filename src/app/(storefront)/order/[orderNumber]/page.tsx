@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
-import { CheckCircle2, Clock, Package, Truck, Home, XCircle } from "lucide-react";
+import { CheckCircle2, Clock, Package, Truck, Home, XCircle } from "@/components/icons";
 import { getOrderByNumber } from "@/server/queries/orders";
 import { getCurrentUser } from "@/lib/auth";
 import { Button } from "@/components/ui/button";

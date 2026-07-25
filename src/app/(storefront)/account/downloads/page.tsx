@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FileText, Download } from "lucide-react";
+import { FileText, Download } from "@/components/icons";
 import { getCurrentUser } from "@/lib/auth";
 import { getUserOrders } from "@/server/queries/orders";
 import { safe } from "@/server/queries/content";

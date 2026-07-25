@@ -1,36 +1,44 @@
 /**
- * Central brand + site configuration for PULSE.
+ * Central brand + site configuration for Iconik Posters.
  * Single source of truth for identity, contact, social and legal links.
  */
 export const siteConfig = {
-  name: "PULSE",
-  legalName: "PULSE Art Collective",
-  tagline: "Curated wall art & premium posters",
+  name: "Iconik Posters",
+  legalName: "Iconik Posters",
+  tagline: "Premium posters designed to make every wall iconic",
+  /** Home / default meta description. */
   description:
-    "PULSE is a premium poster gallery — museum-grade prints, framing and limited editions. Discover curated wall art that turns a room into a statement.",
+    "Shop premium wall posters online at Iconik Posters. Explore movie, anime, gaming, car, music and aesthetic posters with high-quality printing, secure packaging and fast shipping across India.",
+  /** Long-tail SEO headline used as the home page <title>. */
+  seoHeadline:
+    "Buy Premium Posters Online in India | Movie, Anime, Gaming, Car & Aesthetic Wall Posters",
   url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
   ogImage: "/opengraph-image",
   keywords: [
     "posters",
-    "wall art",
-    "prints",
-    "framed art",
+    "wall posters",
+    "buy posters online india",
     "movie posters",
-    "minimalist art",
-    "typography posters",
-    "premium prints",
+    "anime posters",
+    "gaming posters",
+    "car posters",
+    "music posters",
+    "aesthetic posters",
+    "minimal wall art",
   ],
   contact: {
-    email: "hello@pulse.store",
-    phone: "+91 90000 12345",
-    supportHours: "Mon–Sat, 10am – 7pm IST",
-    address: "PULSE Studio, Indiranagar, Bengaluru 560038",
+    email: "support@iconikposters.in",
+    /** TODO: replace with the real business number before launch. */
+    phone: "",
+    supportHours: "Monday – Saturday, 10:00 AM – 7:00 PM",
+    /** TODO: replace with the registered business address before launch. */
+    address: "Iconik Posters, India",
   },
   social: {
-    instagram: "https://instagram.com/pulse.posters",
-    twitter: "https://twitter.com/pulseposters",
-    pinterest: "https://pinterest.com/pulseposters",
-    youtube: "https://youtube.com/@pulseposters",
+    instagramHandle: "@iconikposters",
+    instagram: "https://instagram.com/iconikposters",
+    facebook: "https://facebook.com/iconikposters",
+    youtube: "https://youtube.com/@iconikposters",
   },
   shipping: {
     freeShippingThreshold: 999,

@@ -6,7 +6,7 @@ import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "@/components/icons";
 import { toast } from "sonner";
 import { loginSchema, type LoginInput } from "@/lib/validations/auth";
 import { Input } from "@/components/ui/input";
@@ -120,7 +120,7 @@ export function LoginForm() {
       </form>
 
       <p className="rounded-md bg-secondary/60 px-3 py-2 text-center text-xs text-muted-foreground">
-        Demo admin: <span className="font-medium text-foreground">admin@pulse.store</span> / Admin@12345
+        Demo admin: <span className="font-medium text-foreground">admin@iconikposters.in</span> / Admin@12345
       </p>
     </div>
   );

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Frown } from "lucide-react";
+import { Frown } from "@/components/icons";
 import { FilterSidebar } from "./filter-sidebar";
 import { ListingToolbar } from "./listing-toolbar";
 import { ProductGrid } from "./product-grid";

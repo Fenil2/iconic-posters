@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Package, Truck, CheckCircle2, MapPin, ArrowRight } from "lucide-react";
+import { Package, Truck, CheckCircle2, MapPin, ArrowRight } from "@/components/icons";
 import { getCurrentUser } from "@/lib/auth";
 import { getAccountOverview } from "@/server/queries/account";
 import { safe } from "@/server/queries/content";

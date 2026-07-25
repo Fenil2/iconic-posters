@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Best Sellers",
-  description: "The most-loved posters at PULSE — our top-selling wall art.",
+  description: "The most-loved posters at Iconik Posters — our top-selling wall art.",
   alternates: { canonical: "/best-sellers" },
 };
 

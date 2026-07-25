@@ -6,7 +6,7 @@ import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "@/components/icons";
 import { toast } from "sonner";
 import { signupSchema, type SignupInput } from "@/lib/validations/auth";
 import { registerUser } from "@/server/actions/auth";

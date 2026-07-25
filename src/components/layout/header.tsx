@@ -13,7 +13,7 @@ import {
   LayoutDashboard,
   LogOut,
   ChevronDown,
-} from "lucide-react";
+} from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
 import { SearchBar } from "./search-bar";
@@ -60,7 +60,8 @@ export function Header() {
       <div className="bg-primary text-primary-foreground">
         <div className="mx-auto flex max-w-[1400px] items-center justify-center gap-6 px-4 py-2 text-xs">
           <span className="font-medium tracking-wide">
-            Free shipping over ₹999 · 7-day returns · Made in India 🇮🇳
+            Fast shipping across India · Secure packaging · New designs added
+            regularly
           </span>
         </div>
       </div>

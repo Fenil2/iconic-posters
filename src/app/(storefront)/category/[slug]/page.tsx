@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!cat) return { title: "Category not found" };
   return {
     title: `${cat.name} Posters`,
-    description: `Shop premium ${cat.name} posters & framed prints at ${siteConfig.name}. Multiple sizes and framing options, archival quality.`,
+    description: `Shop premium ${cat.name} posters at ${siteConfig.name}. High-quality printing, multiple sizes, framed and unframed options, fast shipping across India.`,
     alternates: { canonical: `/category/${slug}` },
   };
 }
@@ -52,7 +52,7 @@ export default async function CategoryPage({
     <ProductListing
       filters={filters}
       title={`${cat.name} Posters`}
-      description={`Premium ${cat.name.toLowerCase()} wall art — archival prints in multiple sizes, with optional framing.`}
+      description={`Premium ${cat.name.toLowerCase()} wall posters — vibrant, fade-resistant prints in multiple sizes, framed or unframed.`}
       breadcrumb={[{ label: cat.name, href: `/category/${slug}` }]}
     />
   );

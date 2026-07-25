@@ -23,16 +23,16 @@ const serverSchema = z.object({
   STRIPE_SECRET_KEY: z.string().optional().default(""),
   STRIPE_WEBHOOK_SECRET: z.string().optional().default(""),
   RESEND_API_KEY: z.string().optional().default(""),
-  RESEND_FROM_EMAIL: z.string().optional().default("PULSE <onboarding@resend.dev>"),
-  SEED_ADMIN_EMAIL: z.string().optional().default("admin@pulse.store"),
+  RESEND_FROM_EMAIL: z.string().optional().default("Iconik Posters <onboarding@resend.dev>"),
+  SEED_ADMIN_EMAIL: z.string().optional().default("admin@iconikposters.in"),
   SEED_ADMIN_PASSWORD: z.string().optional().default("Admin@12345"),
 });
 
 const clientSchema = z.object({
   NEXT_PUBLIC_APP_URL: z.string().url().default("http://localhost:3000"),
-  NEXT_PUBLIC_APP_NAME: z.string().default("PULSE"),
+  NEXT_PUBLIC_APP_NAME: z.string().default("Iconik Posters"),
   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string().optional().default(""),
-  NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET: z.string().optional().default("pulse_unsigned"),
+  NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET: z.string().optional().default("iconik_unsigned"),
   NEXT_PUBLIC_RAZORPAY_KEY_ID: z.string().optional().default(""),
   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: z.string().optional().default(""),
   NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional().default(""),

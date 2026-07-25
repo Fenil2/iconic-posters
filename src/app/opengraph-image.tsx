@@ -23,7 +23,7 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ fontSize: 140, fontWeight: 700, letterSpacing: "-0.04em" }}>
-          PULSE<span style={{ color: "#c08a2d" }}>.</span>
+          ICONIK<span style={{ color: "#c08a2d" }}>.</span>
         </div>
         <div style={{ fontSize: 34, color: "#a3a3a3", marginTop: 8 }}>
           {siteConfig.tagline}

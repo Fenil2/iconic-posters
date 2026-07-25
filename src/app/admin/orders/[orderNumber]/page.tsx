@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Download } from "lucide-react";
+import { ArrowLeft, Download } from "@/components/icons";
 import { getAdminOrderDetail } from "@/server/queries/admin";
 import { safe } from "@/server/queries/content";
 import { Badge } from "@/components/ui/badge";

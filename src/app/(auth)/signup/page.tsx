@@ -5,7 +5,7 @@ import { SignupForm } from "@/components/auth/signup-form";
 
 export const metadata: Metadata = {
   title: "Create account",
-  description: "Create your PULSE account and get 10% off your first order.",
+  description: "Create your Iconik Posters account and get 10% off your first order.",
 };
 
 export default function SignupPage() {
@@ -16,7 +16,7 @@ export default function SignupPage() {
           Create your account
         </h1>
         <p className="text-sm text-muted-foreground">
-          Join PULSE for early drops and 10% off your first order.
+          Join Iconik Posters for early drops and 10% off your first order.
         </p>
       </div>
 

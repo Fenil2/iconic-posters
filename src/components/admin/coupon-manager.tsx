@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { Plus, Trash2, Loader2, Ticket } from "lucide-react";
+import { Plus, Trash2, Loader2, Ticket } from "@/components/icons";
 import { toast } from "sonner";
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,
@@ -127,7 +127,7 @@ function CouponForm({ onDone }: { onDone: () => void }) {
     <form onSubmit={submit} className="grid gap-3 sm:grid-cols-2">
       <div className="space-y-1.5 sm:col-span-2">
         <Label>Code</Label>
-        <Input value={form.code} onChange={(e) => set("code", e.target.value.toUpperCase())} placeholder="PULSE10" />
+        <Input value={form.code} onChange={(e) => set("code", e.target.value.toUpperCase())} placeholder="ICONIK10" />
       </div>
       <div className="space-y-1.5 sm:col-span-2">
         <Label>Description</Label>

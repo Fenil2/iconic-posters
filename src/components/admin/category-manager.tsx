@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import Image from "next/image";
-import { Plus, Trash2, Loader2, FolderTree, Star } from "lucide-react";
+import { Plus, Trash2, Loader2, FolderTree, Star } from "@/components/icons";
 import { toast } from "sonner";
 import {
   Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger,

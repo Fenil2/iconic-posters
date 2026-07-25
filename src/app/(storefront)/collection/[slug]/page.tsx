@@ -26,7 +26,7 @@ export async function generateMetadata({
   const name = await resolveName(slug);
   return {
     title: name,
-    description: `Shop the ${name} collection at PULSE — curated premium posters.`,
+    description: `Shop the ${name} collection at Iconik Posters — curated premium posters.`,
     alternates: { canonical: `/collection/${slug}` },
   };
 }

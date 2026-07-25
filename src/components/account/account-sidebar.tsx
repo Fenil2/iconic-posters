@@ -12,7 +12,7 @@ import {
   Bell,
   Settings,
   LogOut,
-} from "lucide-react";
+} from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 const links = [

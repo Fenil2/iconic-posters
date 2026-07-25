@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Tag, X, Loader2, Gift } from "lucide-react";
+import { Tag, X, Loader2, Gift } from "@/components/icons";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -71,7 +71,7 @@ export function OrderSummary({
             </div>
           )}
           <p className="mt-1.5 text-xs text-muted-foreground">
-            Try <span className="font-medium">PULSE10</span> or{" "}
+            Try <span className="font-medium">ICONIK10</span> or{" "}
             <span className="font-medium">FREESHIP</span>
           </p>
         </div>

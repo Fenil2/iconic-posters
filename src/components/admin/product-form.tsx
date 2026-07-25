@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { Plus, Trash2, Loader2, Save } from "lucide-react";
+import { Plus, Trash2, Loader2, Save } from "@/components/icons";
 import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -58,7 +58,7 @@ export function ProductForm({
       theme: initial?.theme ?? "",
       color: initial?.color ?? "",
       artist: initial?.artist ?? "",
-      brand: initial?.brand ?? "PULSE",
+      brand: initial?.brand ?? "Iconik Posters",
       isFeatured: initial?.isFeatured ?? false,
       isBestSeller: initial?.isBestSeller ?? false,
       isNewArrival: initial?.isNewArrival ?? false,

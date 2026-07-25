@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ThumbsUp, BadgeCheck, MessageCircleQuestion } from "lucide-react";
+import { ThumbsUp, BadgeCheck, MessageCircleQuestion } from "@/components/icons";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { RatingStars } from "@/components/shared/rating-stars";
@@ -17,7 +17,7 @@ export function ProductTabs({ product }: { product: ProductDetailData }) {
     ["Paper types", [...new Set(product.variants.map((v) => v.paperType))].join(", ")],
     ["Frame options", [...new Set(product.variants.map((v) => v.frameType))].join(", ")],
     ["Orientation", product.orientation.toLowerCase()],
-    ["Brand", product.brand ?? "PULSE"],
+    ["Brand", product.brand ?? "Iconik Posters"],
     ["Theme", product.theme ?? "—"],
     ["Tax", `${product.taxRate}% GST`],
   ];
@@ -38,9 +38,10 @@ export function ProductTabs({ product }: { product: ProductDetailData }) {
           {product.description}
         </p>
         <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-          <li>• Archival, acid-free stock with pigment inks (100+ year fade resistance)</li>
-          <li>• Ships in protective rigid packaging</li>
-          <li>• Designed & printed in India by PULSE</li>
+          <li>• Premium-quality stock with vibrant, fade-resistant colours</li>
+          <li>• Multiple sizes, framed and unframed options</li>
+          <li>• Ships in secure, protective rigid packaging</li>
+          <li>• Designed & printed in India by Iconik Posters</li>
         </ul>
       </TabsContent>
 
@@ -194,7 +195,7 @@ function ReviewCard({ review }: { review: ProductDetailData["reviews"][number] }
 
       {review.adminReply && (
         <div className="mt-3 rounded-lg bg-secondary/60 p-3 text-sm">
-          <span className="font-medium">PULSE:</span>{" "}
+          <span className="font-medium">Iconik Posters:</span>{" "}
           <span className="text-muted-foreground">{review.adminReply}</span>
         </div>
       )}

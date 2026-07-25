@@ -48,7 +48,7 @@ export async function getProductBySlug(
 
   const reviews: ReviewData[] = p.reviews.map((r) => ({
     id: r.id,
-    author: r.user.name ?? "PULSE Customer",
+    author: r.user.name ?? "Iconik Customer",
     avatar: r.user.image,
     rating: r.rating,
     title: r.title,

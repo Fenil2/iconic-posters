@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Plus, Pencil, Trash2, Check, MapPin, Loader2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Check, MapPin, Loader2 } from "@/components/icons";
 import { toast } from "sonner";
 import {
   Dialog,
