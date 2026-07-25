@@ -35,7 +35,7 @@ export function AdminSidebar() {
       <div className="flex h-16 items-center border-b px-5">
         <Logo />
         <span className="ml-2 rounded bg-secondary px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide">
-          Admin
+          Admins
         </span>
       </div>
       <nav className="flex-1 space-y-1 overflow-y-auto p-3">
