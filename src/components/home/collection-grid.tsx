@@ -2,7 +2,7 @@ import Link from "next/link";
 import { storeCollections } from "@/config/navigation";
 import { SectionHeading } from "@/components/shared/section-heading";
 
-/** "Shop By Collection" — every store collection as an emoji-led tile. */
+/** "Shop By Collection" — every store collection as an icon-led tile. */
 export function CollectionGrid() {
   return (
     <section className="space-y-8">
@@ -23,9 +23,9 @@ export function CollectionGrid() {
           >
             <span
               aria-hidden
-              className="grid size-11 shrink-0 place-items-center rounded-full bg-background text-xl transition-transform group-hover:scale-110"
+              className="grid size-11 shrink-0 place-items-center rounded-full bg-background transition-transform group-hover:scale-110"
             >
-              {c.emoji}
+              <c.icon className="size-5" />
             </span>
             <span className="min-w-0">
               <span className="block truncate text-sm font-medium">

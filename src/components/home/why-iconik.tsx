@@ -31,8 +31,9 @@ export function WhyIconik() {
               style={{ backgroundImage: `url(${c.image})` }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent" />
-            <span className="absolute bottom-4 left-4 text-sm font-medium text-white">
-              {c.emoji} {c.label}
+            <span className="absolute bottom-4 left-4 flex items-center gap-2 text-sm font-medium text-white">
+              <c.icon aria-hidden className="size-4 shrink-0" />
+              {c.label}
             </span>
           </Link>
         ))}

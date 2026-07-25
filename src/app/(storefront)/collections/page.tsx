@@ -34,10 +34,8 @@ export default function CollectionsPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-              <p className="font-serif text-2xl font-semibold">
-                <span aria-hidden className="mr-2">
-                  {c.emoji}
-                </span>
+              <p className="flex items-center gap-2.5 font-serif text-2xl font-semibold">
+                <c.icon aria-hidden className="size-6 shrink-0" />
                 {c.label}
               </p>
               <p className="mt-1 text-sm text-white/80">{c.blurb}</p>

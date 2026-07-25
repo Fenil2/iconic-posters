@@ -2,12 +2,12 @@ import type { IconType } from "@/components/icons";
 import {
   Clapperboard,
   Gamepad2,
-  Sparkles,
+  Bolt,
   Car,
   Music4,
   Quote,
   Heart,
-  Sparkle,
+  Sparkles,
   Rocket,
   Trophy,
   Shapes,
@@ -39,7 +39,6 @@ const UNSPLASH = (id: string, w = 600) =>
 export interface StoreCollection {
   label: string;
   slug: string;
-  emoji: string;
   icon: IconType;
   image: string;
   blurb: string;
@@ -54,7 +53,6 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Movies",
     slug: "movies",
-    emoji: "🎬",
     icon: Clapperboard,
     image: UNSPLASH("1489599849927-2ee91cede3ba"),
     blurb: "Cult classics, blockbusters and silver-screen icons.",
@@ -62,7 +60,6 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Gaming",
     slug: "gaming",
-    emoji: "🎮",
     icon: Gamepad2,
     image: UNSPLASH("1542751371-adc38448a05e"),
     blurb: "Legendary titles and setup-defining art for your battlestation.",
@@ -70,15 +67,13 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Anime",
     slug: "anime",
-    emoji: "⚡",
-    icon: Sparkles,
+    icon: Bolt,
     image: UNSPLASH("1578632767115-351597cf2477"),
     blurb: "Bold character art, iconic scenes and minimal anime prints.",
   },
   {
     label: "Cars & Bikes",
     slug: "cars-bikes",
-    emoji: "🏎",
     icon: Car,
     image: UNSPLASH("1503376780353-7e6692767b70"),
     blurb: "Supercars, JDM legends, superbikes and racing greats.",
@@ -86,7 +81,6 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Music",
     slug: "music",
-    emoji: "🎵",
     icon: Music4,
     image: UNSPLASH("1511671782779-c97d3d27a1d4"),
     blurb: "Album art, tour posters and legends of every genre.",
@@ -94,7 +88,6 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Quotes",
     slug: "quotes",
-    emoji: "💬",
     icon: Quote,
     image: UNSPLASH("1455390582262-044cdead277a"),
     blurb: "Typography that says exactly what you needed to hear.",
@@ -102,7 +95,6 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Love",
     slug: "love",
-    emoji: "❤️",
     icon: Heart,
     image: UNSPLASH("1518199266791-5375a83190b7"),
     blurb: "Warm, romantic prints for shared spaces and gifting.",
@@ -110,15 +102,13 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Aesthetic",
     slug: "aesthetic",
-    emoji: "✨",
-    icon: Sparkle,
+    icon: Sparkles,
     image: UNSPLASH("1502691876148-a84978e59af8"),
     blurb: "Mood-led art for interiors that photograph beautifully.",
   },
   {
     label: "Space",
     slug: "space",
-    emoji: "🌌",
     icon: Rocket,
     image: UNSPLASH("1462331940025-496dfbfc7564"),
     blurb: "Galaxies, missions and the quiet enormity of it all.",
@@ -126,7 +116,6 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Sports",
     slug: "sports",
-    emoji: "🏆",
     icon: Trophy,
     image: UNSPLASH("1461896836934-ffe607ba8211"),
     blurb: "Match-defining moments and the athletes who made them.",
@@ -134,7 +123,6 @@ export const storeCollections: StoreCollection[] = [
   {
     label: "Minimal",
     slug: "minimal",
-    emoji: "🎨",
     icon: Shapes,
     image: UNSPLASH("1497366216548-37526070297c"),
     blurb: "Line art, shapes and restraint — for walls that whisper.",
@@ -207,7 +195,7 @@ export const megaMenu: MegaMenuCategory[] = [
   {
     label: "Anime",
     slug: "anime",
-    icon: Sparkles,
+    icon: Bolt,
     columns: [
       {
         title: "By Type",
@@ -264,7 +252,7 @@ export const megaMenu: MegaMenuCategory[] = [
   {
     label: "Aesthetic",
     slug: "aesthetic",
-    icon: Sparkle,
+    icon: Sparkles,
     columns: [
       {
         title: "Moods",
