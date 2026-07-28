@@ -57,21 +57,21 @@ export function CartDrawer({
           <>
             <div className="flex-1 overflow-y-auto scrollbar-thin px-6 py-4">
               {/* Free shipping progress */}
-              <div className="mb-4 rounded-lg bg-secondary/60 p-3">
-                <p className="text-xs text-muted-foreground">
+              <div className="mb-4 rounded-sm border border-border bg-secondary/60 p-3">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
                   {remaining > 0 ? (
                     <>
-                      Add <span className="font-semibold text-foreground">{formatPrice(remaining)}</span> for free shipping
+                      Add <span className="font-bold text-foreground">{formatPrice(remaining)}</span> for free shipping
                     </>
                   ) : (
-                    <span className="font-medium text-foreground">
+                    <span className="font-bold text-foreground">
                       🎉 You’ve unlocked free shipping!
                     </span>
                   )}
                 </p>
                 <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-border">
                   <div
-                    className="h-full rounded-full bg-primary transition-all"
+                    className="h-full rounded-full bg-accent transition-all"
                     style={{ width: `${progress}%` }}
                   />
                 </div>
@@ -82,7 +82,7 @@ export function CartDrawer({
                   const key = lineKey(item.productId, item.variantId);
                   return (
                     <li key={key} className="flex gap-3 py-4">
-                      <div className="relative size-20 shrink-0 overflow-hidden rounded-md bg-secondary">
+                      <div className="relative size-20 shrink-0 overflow-hidden rounded-sm border border-border bg-secondary">
                         <Image
                           src={item.image}
                           alt={item.name}
@@ -116,7 +116,7 @@ export function CartDrawer({
                           </p>
                         )}
                         <div className="mt-auto flex items-center justify-between pt-2">
-                          <div className="flex items-center rounded-md border border-border">
+                          <div className="flex items-center rounded-sm border border-border">
                             <button
                               onClick={() => updateQty(key, item.quantity - 1)}
                               className="grid size-8 place-items-center hover:bg-secondary"

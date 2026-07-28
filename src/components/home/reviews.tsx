@@ -32,14 +32,14 @@ export function Reviews() {
         {reviews.map((r) => (
           <figure
             key={r.quote}
-            className="flex h-full flex-col gap-4 rounded-2xl border border-border bg-secondary/25 p-7"
+            className="flex h-full flex-col gap-4 rounded-md border border-border bg-card p-7 transition-colors hover:border-foreground"
           >
             <RatingStars value={5} size="md" />
-            <blockquote className="font-serif text-lg leading-snug">
+            <blockquote className="font-display text-xl font-semibold leading-snug">
               &ldquo;{r.quote}&rdquo;
             </blockquote>
-            <figcaption className="mt-auto text-sm text-muted-foreground">
-              <span className="font-medium text-foreground">{r.author}</span> ·{" "}
+            <figcaption className="mt-auto text-xs uppercase tracking-[0.1em] text-muted-foreground">
+              <span className="font-bold text-foreground">{r.author}</span> ·{" "}
               {r.context}
             </figcaption>
           </figure>

@@ -22,7 +22,7 @@ export function WhyIconik() {
           <Link
             key={c.slug}
             href={`/category/${c.slug}`}
-            className={`group relative overflow-hidden rounded-2xl bg-secondary ${
+            className={`group relative overflow-hidden rounded-md bg-secondary ${
               i % 3 === 0 ? "aspect-[4/5]" : "aspect-square"
             }`}
           >
@@ -30,9 +30,9 @@ export function WhyIconik() {
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url(${c.image})` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent" />
-            <span className="absolute bottom-4 left-4 flex items-center gap-2 text-sm font-medium text-white">
-              <c.icon aria-hidden className="size-4 shrink-0" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
+            <span className="absolute bottom-4 left-4 flex items-center gap-2 font-display text-sm font-bold uppercase tracking-[0.12em] text-white">
+              <c.icon aria-hidden className="size-4 shrink-0 text-accent" />
               {c.label}
             </span>
           </Link>
@@ -40,10 +40,11 @@ export function WhyIconik() {
       </div>
 
       <div>
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent-foreground/70">
+        <p className="flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
+          <span aria-hidden className="h-px w-6 bg-accent" />
           Why Iconik Posters?
         </p>
-        <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="mt-3 font-display text-3xl font-bold uppercase leading-[1.05] sm:text-4xl">
           Your walls deserve more than empty space.
         </h2>
         <p className="mt-5 text-[15px] leading-relaxed text-muted-foreground">
@@ -57,11 +58,15 @@ export function WhyIconik() {
           vibrant colours, sharp details and long-lasting durability.
         </p>
 
-        <h3 className="mt-9 font-serif text-xl font-semibold">Why Choose Us?</h3>
+        <h3 className="mt-9 font-display text-xl font-bold uppercase tracking-wide">
+          Why Choose Us?
+        </h3>
         <ul className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
           {reasons.map((r) => (
             <li key={r} className="flex items-start gap-2.5 text-sm">
-              <Check className="mt-0.5 size-4 shrink-0 text-accent" />
+              <span className="mt-0.5 grid size-4 shrink-0 place-items-center rounded-full bg-accent">
+                <Check className="size-3 text-accent-foreground" />
+              </span>
               <span>{r}</span>
             </li>
           ))}
@@ -69,7 +74,7 @@ export function WhyIconik() {
 
         <Link
           href="/about"
-          className="group mt-8 inline-flex items-center gap-1.5 text-sm font-medium underline-offset-4 hover:underline"
+          className="group mt-8 inline-flex items-center gap-1.5 border-b-2 border-foreground pb-0.5 text-[11px] font-bold uppercase tracking-[0.14em] transition-colors hover:border-accent hover:text-accent"
         >
           More about us
           <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />

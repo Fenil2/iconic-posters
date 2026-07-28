@@ -19,19 +19,19 @@ export function CollectionGrid() {
           <Link
             key={c.slug}
             href={`/category/${c.slug}`}
-            className="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-border bg-secondary/30 p-4 transition-colors hover:border-foreground/25 hover:bg-secondary/60"
+            className="group relative flex items-center gap-3 overflow-hidden rounded-md border border-border bg-card p-4 transition-colors hover:border-foreground hover:bg-foreground hover:text-background"
           >
             <span
               aria-hidden
-              className="grid size-11 shrink-0 place-items-center rounded-full bg-background transition-transform group-hover:scale-110"
+              className="grid size-11 shrink-0 place-items-center rounded-sm bg-secondary transition-colors group-hover:bg-accent group-hover:text-accent-foreground"
             >
               <c.icon className="size-5" />
             </span>
             <span className="min-w-0">
-              <span className="block truncate text-sm font-medium">
+              <span className="block truncate font-display text-base font-bold uppercase tracking-wide">
                 {c.label}
               </span>
-              <span className="block truncate text-xs text-muted-foreground">
+              <span className="block truncate text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground group-hover:text-background/60">
                 Shop now
               </span>
             </span>
@@ -40,7 +40,7 @@ export function CollectionGrid() {
 
         <Link
           href="/shop"
-          className="flex items-center justify-center rounded-xl border border-dashed border-border p-4 text-sm font-medium text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+          className="flex items-center justify-center rounded-md border border-dashed border-border p-4 text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
         >
           And many more…
         </Link>

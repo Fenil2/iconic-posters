@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { BrandMark } from "@/components/shared/brand-mark";
 import { siteConfig } from "@/config/site";
 
 export const runtime = "edge";
@@ -14,19 +15,38 @@ export default function OpengraphImage() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0a0a0a",
-          color: "#fafaf8",
-          fontFamily: "serif",
+          gap: 56,
+          background: "#000000",
+          color: "#ffffff",
         }}
       >
-        <div style={{ fontSize: 140, fontWeight: 700, letterSpacing: "-0.04em" }}>
-          ICONIK<span style={{ color: "#c08a2d" }}>.</span>
-        </div>
-        <div style={{ fontSize: 34, color: "#a3a3a3", marginTop: 8 }}>
-          {siteConfig.tagline}
+        <BrandMark width={190} />
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div
+            style={{
+              fontSize: 128,
+              fontWeight: 700,
+              lineHeight: 1,
+              letterSpacing: "0.01em",
+            }}
+          >
+            ICONIK
+          </div>
+          <div
+            style={{
+              fontSize: 42,
+              fontWeight: 700,
+              letterSpacing: "0.36em",
+              marginTop: 10,
+            }}
+          >
+            POSTERS
+          </div>
+          <div style={{ fontSize: 28, color: "#a3a3a3", marginTop: 22 }}>
+            {siteConfig.tagline}
+          </div>
         </div>
       </div>
     ),

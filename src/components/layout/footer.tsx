@@ -44,16 +44,16 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t bg-secondary/30">
+    <footer className="mt-24 bg-black text-white">
       <div className="mx-auto max-w-[1400px] px-4 py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div className="space-y-4">
-            <Logo />
-            <p className="max-w-xs text-sm text-muted-foreground">
+          <div className="space-y-5">
+            <Logo variant="stacked" onDark className="h-24" />
+            <p className="max-w-xs text-sm text-white/60">
               Premium posters designed to make every wall iconic.
             </p>
             <div>
-              <h4 className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/50">
                 Follow Us
               </h4>
               <div className="flex gap-2">
@@ -65,7 +65,7 @@ export function Footer() {
                     rel="noreferrer"
                     aria-label={label}
                     title={label}
-                    className="grid size-10 place-items-center rounded-full border border-border transition-colors hover:bg-background"
+                    className="grid size-10 place-items-center rounded-sm border border-white/20 transition-colors hover:border-accent hover:bg-accent"
                   >
                     <Icon className="size-4" />
                   </a>
@@ -76,7 +76,7 @@ export function Footer() {
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h4 className="mb-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              <h4 className="mb-4 text-[11px] font-bold uppercase tracking-[0.18em] text-white/50">
                 {col.title}
               </h4>
               <ul className="space-y-3">
@@ -84,7 +84,7 @@ export function Footer() {
                   <li key={l.href}>
                     <Link
                       href={l.href}
-                      className="text-sm text-foreground/80 transition-colors hover:text-foreground"
+                      className="text-sm text-white/75 transition-colors hover:text-accent"
                     >
                       {l.label}
                     </Link>
@@ -95,10 +95,12 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-14 grid gap-8 border-t pt-10 lg:grid-cols-[1.4fr_2fr] lg:items-center">
+        <div className="mt-14 grid gap-8 border-t border-white/15 pt-10 lg:grid-cols-[1.4fr_2fr] lg:items-center">
           <div>
-            <h4 className="font-serif text-xl font-semibold">Stay Updated</h4>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <h4 className="font-display text-2xl font-bold uppercase leading-none">
+              Stay Updated
+            </h4>
+            <p className="mt-2 text-sm text-white/60">
               Never miss new collections, exclusive launches, limited editions
               and exciting offers.
             </p>
@@ -106,24 +108,24 @@ export function Footer() {
           <NewsletterForm />
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-xs text-muted-foreground sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/50 sm:flex-row">
           <p>
             © {new Date().getFullYear()} {siteConfig.legalName}. All rights
             reserved.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/privacy" className="hover:text-foreground">
+            <Link href="/privacy" className="hover:text-white">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-foreground">
+            <Link href="/terms" className="hover:text-white">
               Terms
             </Link>
-            <Link href="/shipping" className="hover:text-foreground">
+            <Link href="/shipping" className="hover:text-white">
               Shipping
             </Link>
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="hover:text-foreground"
+              className="hover:text-white"
             >
               {siteConfig.contact.email}
             </a>

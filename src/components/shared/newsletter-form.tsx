@@ -42,13 +42,13 @@ export function NewsletterForm() {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="you@example.com"
         aria-label="Email address"
-        className="h-12 rounded-full bg-background"
+        className="h-12 rounded-sm border-transparent bg-background text-foreground"
         required
       />
       <button
         type="submit"
         disabled={loading || done}
-        className="grid size-12 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground transition-transform active:scale-95 disabled:opacity-60"
+        className="grid size-12 shrink-0 place-items-center rounded-sm bg-accent text-accent-foreground transition-transform active:scale-95 disabled:opacity-60"
         aria-label="Subscribe"
       >
         {done ? <Check className="size-5" /> : <ArrowRight className="size-5" />}

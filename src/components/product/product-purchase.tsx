@@ -99,17 +99,17 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
         {product.category && (
           <Link
             href={`/category/${product.category.slug}`}
-            className="text-xs font-medium uppercase tracking-[0.2em] text-accent-foreground/70 hover:underline"
+            className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent hover:underline"
           >
             {product.category.name}
           </Link>
         )}
-        <h1 className="mt-1.5 font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+        <h1 className="mt-2 font-display text-3xl font-bold uppercase leading-[1.05] sm:text-4xl">
           {product.name}
         </h1>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <RatingStars value={product.ratingAverage} showCount count={product.ratingCount} />
-          <span className="text-xs text-muted-foreground">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             {product.soldCount.toLocaleString("en-IN")}+ sold
           </span>
           {product.isLimitedEdition && <Badge>Limited Edition</Badge>}
@@ -118,20 +118,26 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
       </div>
 
       {/* Price */}
-      <div className="flex items-baseline gap-3">
-        <span className="text-3xl font-semibold">{formatPrice(price)}</span>
-        {mrp > price && (
-          <>
-            <span className="text-lg text-muted-foreground line-through">
-              {formatPrice(mrp)}
-            </span>
-            <Badge variant="accent">−{discount}%</Badge>
-          </>
-        )}
+      <div className="rounded-md border border-border bg-secondary/50 p-4">
+        <div className="flex flex-wrap items-baseline gap-3">
+          <span className="font-display text-4xl font-bold leading-none">
+            {formatPrice(price)}
+          </span>
+          {mrp > price && (
+            <>
+              <span className="text-lg text-muted-foreground line-through">
+                {formatPrice(mrp)}
+              </span>
+              <span className="rounded-sm bg-accent px-2 py-1 text-[11px] font-bold leading-none text-accent-foreground">
+                −{discount}%
+              </span>
+            </>
+          )}
+        </div>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Inclusive of all taxes · {product.taxRate}% GST
+        </p>
       </div>
-      <p className="-mt-4 text-xs text-muted-foreground">
-        Inclusive of all taxes · {product.taxRate}% GST
-      </p>
 
       {/* Size */}
       <Option label="Size" value={size}>
@@ -187,7 +193,7 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
 
       {/* Quantity + actions */}
       <div className="flex items-center gap-3">
-        <div className="flex items-center rounded-md border border-border">
+        <div className="flex items-center rounded-sm border border-border">
           <button
             onClick={() => setQty((q) => Math.max(1, q - 1))}
             className="grid size-11 place-items-center hover:bg-secondary"
@@ -204,19 +210,19 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
             <Plus className="size-4" />
           </button>
         </div>
-        <Button size="lg" className="flex-1" disabled={!available} onClick={handleAdd}>
-          Add to bag
-        </Button>
-      </div>
-
-      <div className="flex gap-3">
         <Button
           size="lg"
           variant="outline"
           className="flex-1"
           disabled={!available}
-          asChild
+          onClick={handleAdd}
         >
+          Add to bag
+        </Button>
+      </div>
+
+      <div className="flex gap-3">
+        <Button size="lg" variant="accent" className="flex-1" disabled={!available} asChild>
           <Link href="/checkout" onClick={handleAdd}>
             Buy now
           </Link>
@@ -239,8 +245,8 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
       </div>
 
       {/* Pincode / delivery */}
-      <div className="rounded-lg border border-border p-4">
-        <div className="flex items-center gap-2 text-sm font-medium">
+      <div className="rounded-md border border-border p-4">
+        <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em]">
           <MapPin className="size-4" /> Check delivery
         </div>
         <div className="mt-3 flex gap-2">
@@ -263,15 +269,17 @@ export function ProductPurchase({ product }: { product: ProductDetailData }) {
       </div>
 
       {/* Trust */}
-      <div className="grid grid-cols-3 gap-3 border-t pt-5 text-center">
+      <div className="grid grid-cols-3 divide-x divide-border rounded-md border border-border py-4 text-center">
         {[
           { icon: Truck, label: `Free shipping over ${formatPrice(siteConfig.shipping.freeShippingThreshold)}` },
           { icon: RotateCcw, label: "7-day returns" },
           { icon: ShieldCheck, label: "Secure payment" },
         ].map(({ icon: Icon, label }) => (
-          <div key={label} className="flex flex-col items-center gap-1.5">
-            <Icon className="size-5 text-muted-foreground" />
-            <span className="text-xs text-muted-foreground">{label}</span>
+          <div key={label} className="flex flex-col items-center gap-2 px-2">
+            <Icon className="size-5 text-accent" />
+            <span className="text-[10px] font-semibold uppercase leading-tight tracking-[0.08em] text-muted-foreground">
+              {label}
+            </span>
           </div>
         ))}
       </div>
@@ -289,9 +297,9 @@ function Option({
   children: React.ReactNode;
 }) {
   return (
-    <div className="space-y-2">
-      <div className="flex items-center gap-2 text-sm">
-        <span className="font-medium">{label}:</span>
+    <div className="space-y-2.5">
+      <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.14em]">
+        <span className="font-bold">{label}:</span>
         <span className="text-muted-foreground">{value === "None" ? "No frame" : value}</span>
       </div>
       {children}
@@ -312,9 +320,9 @@ function Chip({
     <button
       onClick={onClick}
       className={cn(
-        "rounded-md border px-4 py-2 text-sm transition-colors",
+        "min-w-14 rounded-sm border px-4 py-2.5 text-xs font-bold uppercase tracking-[0.08em] transition-colors",
         active
-          ? "border-primary bg-primary text-primary-foreground"
+          ? "border-foreground bg-foreground text-background"
           : "border-border hover:border-foreground",
       )}
     >

@@ -127,7 +127,7 @@ function ReviewsPanel({ product }: { product: ProductDetailData }) {
               <div key={r} className="flex items-center gap-2 text-xs">
                 <span className="w-3">{r}</span>
                 <div className="h-2 flex-1 overflow-hidden rounded-full bg-secondary">
-                  <div className="h-full bg-accent" style={{ width: `${pct}%` }} />
+                  <div className="h-full bg-warning" style={{ width: `${pct}%` }} />
                 </div>
                 <span className="w-8 text-right text-muted-foreground">{count}</span>
               </div>

@@ -83,16 +83,19 @@ export default async function HomePage() {
       <Hero slides={slides} />
 
       {/* Trust strip */}
-      <div className="border-b bg-secondary/30">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-4 px-4 py-6 md:grid-cols-4">
+      <div className="bg-foreground text-background">
+        <div className="mx-auto grid max-w-[1400px] grid-cols-2 divide-x divide-background/15 px-4 py-5 md:grid-cols-4">
           {trust.map(({ icon: Icon, title, sub }) => (
-            <div key={title} className="flex items-center gap-3">
-              <span className="grid size-11 shrink-0 place-items-center rounded-full bg-background">
-                <Icon className="size-5" />
-              </span>
-              <div>
-                <p className="text-sm font-medium">{title}</p>
-                <p className="text-xs text-muted-foreground">{sub}</p>
+            <div
+              key={title}
+              className="flex items-center gap-3 px-3 py-2 first:pl-0 last:pr-0"
+            >
+              <Icon className="size-6 shrink-0 text-accent" />
+              <div className="min-w-0">
+                <p className="truncate text-[11px] font-bold uppercase tracking-[0.1em]">
+                  {title}
+                </p>
+                <p className="truncate text-[11px] text-background/60">{sub}</p>
               </div>
             </div>
           ))}
@@ -114,23 +117,25 @@ export default async function HomePage() {
         )}
 
         {/* Editorial split feature */}
-        <section className="grid gap-6 md:grid-cols-2">
+        <section className="grid gap-4 md:grid-cols-2">
           {slides.slice(0, 2).map((s) => (
             <Link
               key={s.id}
               href={s.link ?? "/shop"}
-              className="group relative aspect-[16/10] overflow-hidden rounded-2xl bg-primary"
+              className="group relative aspect-[16/10] overflow-hidden rounded-md bg-black"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: `url(${s.image})` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-0 p-8 text-white">
-                <h3 className="font-serif text-2xl font-semibold sm:text-3xl">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+              <div className="absolute bottom-0 p-6 text-white sm:p-8">
+                <h3 className="font-display text-2xl font-bold uppercase leading-none sm:text-4xl">
                   {s.title}
                 </h3>
-                <p className="mt-1 text-sm text-white/80">{s.ctaLabel} →</p>
+                <p className="mt-3 inline-flex items-center gap-2 border-b-2 border-accent pb-0.5 text-[11px] font-bold uppercase tracking-[0.14em]">
+                  {s.ctaLabel} →
+                </p>
               </div>
             </Link>
           ))}
@@ -139,7 +144,7 @@ export default async function HomePage() {
         <div className="flex justify-center">
           <Link
             href="/shop"
-            className="inline-flex items-center rounded-full bg-primary px-9 py-3.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02] active:scale-100"
+            className="inline-flex items-center rounded-sm bg-primary px-12 py-4 text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground transition-transform hover:scale-[1.02] active:scale-100"
           >
             View All Posters
           </Link>
@@ -159,7 +164,7 @@ export default async function HomePage() {
         <Reviews />
 
         {/* Stay Updated */}
-        <section className="rounded-2xl border border-border bg-secondary/30 px-6 py-12 sm:px-12">
+        <section className="rounded-md bg-foreground px-6 py-14 text-background sm:px-12 [&_h2]:text-background [&_p]:text-background/70">
           <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
             <SectionHeading
               title="Stay Updated"

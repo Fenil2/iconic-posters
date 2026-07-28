@@ -11,7 +11,10 @@ export default auth((req) => {
   const role = req.auth?.user?.role;
   const { pathname } = nextUrl;
 
-  const isAdminRoute = pathname.startsWith("/admin");
+  const isStaff = role === "ADMIN" || role === "SUPER_ADMIN" || role === "STAFF";
+  // The staff sign-in page lives under /admin but must stay publicly reachable.
+  const isAdminLogin = pathname === "/admin/login";
+  const isAdminRoute = pathname.startsWith("/admin") && !isAdminLogin;
   const isProtected =
     pathname.startsWith("/account") || pathname.startsWith("/checkout");
   const isAuthPage =
@@ -21,19 +24,20 @@ export default auth((req) => {
 
   // Signed-in users shouldn't see auth pages.
   if (isAuthPage && isLoggedIn) {
-    return NextResponse.redirect(new URL("/account", nextUrl));
+    return NextResponse.redirect(new URL(isStaff ? "/admin" : "/account", nextUrl));
   }
 
-  // Admin gate.
-  if (isAdminRoute) {
-    const allowed =
-      isLoggedIn &&
-      (role === "ADMIN" || role === "SUPER_ADMIN" || role === "STAFF");
-    if (!allowed) {
-      const url = new URL("/login", nextUrl);
-      url.searchParams.set("callbackUrl", pathname);
-      return NextResponse.redirect(url);
-    }
+  // Staff already signed in have no reason to see the admin sign-in page.
+  if (isAdminLogin && isLoggedIn && isStaff) {
+    return NextResponse.redirect(new URL("/admin", nextUrl));
+  }
+
+  // Admin gate — unauthorised visitors go to the staff login, not the
+  // customer one, so the two entry points stay separate.
+  if (isAdminRoute && !isStaff) {
+    const url = new URL("/admin/login", nextUrl);
+    url.searchParams.set("callbackUrl", pathname);
+    return NextResponse.redirect(url);
   }
 
   // Customer-protected routes.

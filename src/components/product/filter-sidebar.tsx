@@ -183,7 +183,7 @@ export function FilterSidebar() {
                       key={i}
                       className={cn(
                         "size-3.5",
-                        i < r ? "fill-accent text-accent" : "text-border",
+                        i < r ? "fill-warning text-warning" : "text-border",
                       )}
                     />
                   ))}

@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { AdminSidebar } from "@/components/admin/admin-sidebar";
+import { AdminUserMenu } from "@/components/admin/admin-user-menu";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default async function AdminLayout({
   children,
@@ -12,7 +12,7 @@ export default async function AdminLayout({
   const user = await getCurrentUser();
   const allowed =
     user && ["ADMIN", "SUPER_ADMIN", "STAFF"].includes(user.role ?? "");
-  if (!allowed) redirect("/login?callbackUrl=/admin");
+  if (!allowed) redirect("/admin/login?callbackUrl=/admin");
 
   return (
     <div className="flex min-h-dvh bg-secondary/20">
@@ -24,10 +24,12 @@ export default async function AdminLayout({
           </p>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <Avatar className="size-8">
-              <AvatarImage src={user!.image ?? undefined} />
-              <AvatarFallback>{user!.name?.[0] ?? "A"}</AvatarFallback>
-            </Avatar>
+            <AdminUserMenu
+              name={user!.name}
+              email={user!.email}
+              image={user!.image}
+              role={user!.role}
+            />
           </div>
         </header>
         <main className="flex-1 overflow-x-hidden p-6">{children}</main>

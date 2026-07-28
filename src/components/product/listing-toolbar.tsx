@@ -24,9 +24,9 @@ export function ListingToolbar({ total, activeCount }: ListingToolbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="sticky top-[125px] z-20 -mx-4 mb-6 flex items-center justify-between gap-3 border-b bg-background/90 px-4 py-3 backdrop-blur lg:top-[73px]">
-      <p className="text-sm text-muted-foreground">
-        <span className="font-medium text-foreground">{total}</span>{" "}
+    <div className="sticky top-[167px] z-20 -mx-4 mb-6 flex items-center justify-between gap-3 border-b bg-background/95 px-4 py-3 backdrop-blur lg:top-[107px]">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="font-bold text-foreground">{total}</span>{" "}
         {total === 1 ? "poster" : "posters"}
       </p>
 

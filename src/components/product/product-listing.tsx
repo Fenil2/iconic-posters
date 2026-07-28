@@ -54,12 +54,12 @@ export async function ProductListing({
         </nav>
       )}
 
-      <header className="mb-6 max-w-2xl">
-        <h1 className="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+      <header className="mb-6 max-w-2xl border-l-4 border-accent pl-4">
+        <h1 className="font-display text-3xl font-bold uppercase leading-none tracking-[0.01em] sm:text-4xl">
           {title}
         </h1>
         {description && (
-          <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+          <p className="mt-2.5 text-sm text-muted-foreground">{description}</p>
         )}
       </header>
 
@@ -72,7 +72,7 @@ export async function ProductListing({
       >
         {!hideSidebar && (
           <aside className="hidden lg:block">
-            <div className="sticky top-[88px] max-h-[calc(100dvh-100px)] overflow-y-auto scrollbar-thin pr-2">
+            <div className="sticky top-[123px] max-h-[calc(100dvh-140px)] overflow-y-auto scrollbar-thin pr-2">
               <FilterSidebar />
             </div>
           </aside>
@@ -89,7 +89,7 @@ export async function ProductListing({
               </div>
             </>
           ) : (
-            <div className="flex flex-col items-center gap-4 rounded-xl border border-dashed py-24 text-center">
+            <div className="flex flex-col items-center gap-4 rounded-md border border-dashed py-24 text-center">
               <Frown className="size-10 text-muted-foreground" />
               <div>
                 <p className="font-medium">No posters match these filters</p>

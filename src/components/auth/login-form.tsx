@@ -119,8 +119,15 @@ export function LoginForm() {
         </Button>
       </form>
 
-      <p className="rounded-md bg-secondary/60 px-3 py-2 text-center text-xs text-muted-foreground">
-        Demo admin: <span className="font-medium text-foreground">admin@iconikposters.in</span> / Admin@12345
+      {/* Staff sign in through their own entry point, not the customer login. */}
+      <p className="text-center text-xs text-muted-foreground">
+        Store staff?{" "}
+        <Link
+          href="/admin/login"
+          className="font-medium text-foreground underline-offset-4 hover:underline"
+        >
+          Admin sign in
+        </Link>
       </p>
     </div>
   );

@@ -1,9 +1,10 @@
 import { ImageResponse } from "next/og";
+import { BrandMark } from "@/components/shared/brand-mark";
 
 export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
-/** Generated app/favicon icon — Iconik Posters monogram on ink. */
+/** Generated app/favicon icon — the Iconik stencil poster mark on ink. */
 export default function Icon() {
   return new ImageResponse(
     (
@@ -14,15 +15,11 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0a0a0a",
-          color: "#fafaf8",
-          fontSize: 40,
-          fontWeight: 700,
-          fontFamily: "serif",
+          background: "#000000",
           borderRadius: 12,
         }}
       >
-        I<span style={{ color: "#c08a2d" }}>.</span>
+        <BrandMark width={32} />
       </div>
     ),
     { ...size },

@@ -35,12 +35,14 @@ export function Spaces() {
         {spaces.map(({ label, icon: Icon }) => (
           <div
             key={label}
-            className="flex flex-col items-center gap-3 rounded-xl border border-border p-6 text-center"
+            className="group flex flex-col items-center gap-3 rounded-md border border-border p-6 text-center transition-colors hover:border-foreground"
           >
-            <span className="grid size-12 place-items-center rounded-full bg-secondary">
+            <span className="grid size-12 place-items-center rounded-sm bg-secondary transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
               <Icon className="size-5" />
             </span>
-            <span className="text-sm font-medium">{label}</span>
+            <span className="font-display text-sm font-bold uppercase tracking-[0.1em]">
+              {label}
+            </span>
           </div>
         ))}
       </div>

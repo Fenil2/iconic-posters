@@ -20,7 +20,7 @@ import { SearchBar } from "./search-bar";
 import { ThemeToggle } from "./theme-toggle";
 import { MobileNav } from "./mobile-nav";
 import { CartDrawer } from "@/components/cart/cart-drawer";
-import { megaMenu, primaryNav } from "@/config/navigation";
+import { megaMenu, primaryNav, storeCollections } from "@/config/navigation";
 import { useCart } from "@/hooks/use-cart";
 import { useWishlist } from "@/hooks/use-wishlist";
 import {
@@ -32,7 +32,13 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+
+/** Announcement ticker copy, one phrase per marquee segment. */
+const announcements = [
+  "Fast shipping across India",
+  "Secure packaging",
+  "New designs added regularly",
+];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -56,27 +62,38 @@ export function Header() {
 
   return (
     <>
-      {/* Announcement bar */}
-      <div className="bg-primary text-primary-foreground">
-        <div className="mx-auto flex max-w-[1400px] items-center justify-center gap-6 px-4 py-2 text-xs">
-          <span className="font-medium tracking-wide">
-            Fast shipping across India · Secure packaging · New designs added
-            regularly
-          </span>
+      {/* Announcement ticker */}
+      <div className="overflow-hidden bg-foreground py-2 text-background">
+        <div className="flex w-max animate-marquee">
+          {[0, 1].map((track) => (
+            <div key={track} aria-hidden={track === 1} className="flex shrink-0">
+              {Array.from({ length: 4 }).flatMap((_, rep) =>
+                announcements.map((a) => (
+                  <span
+                    key={`${track}-${rep}-${a}`}
+                    className="flex items-center whitespace-nowrap px-6 text-[11px] font-semibold uppercase tracking-[0.18em]"
+                  >
+                    <span className="mr-6 text-accent">✦</span>
+                    {a}
+                  </span>
+                )),
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
       <header
         className={cn(
-          "sticky top-0 z-40 border-b bg-background/85 backdrop-blur-lg transition-shadow",
-          scrolled && "shadow-sm",
+          "sticky top-0 z-40 border-b bg-background transition-shadow",
+          scrolled && "shadow-[0_1px_16px_rgba(0,0,0,0.08)]",
         )}
         onMouseLeave={() => setActiveMenu(null)}
       >
-        <div className="mx-auto flex max-w-[1400px] items-center gap-4 px-4 py-3 lg:gap-8">
-          {/* Mobile menu */}
+        {/* Row 1 — brand, search, actions */}
+        <div className="mx-auto flex max-w-[1400px] items-center gap-3 px-4 py-3 lg:gap-8">
           <button
-            className="lg:hidden"
+            className="-ml-1 grid size-10 shrink-0 place-items-center lg:hidden"
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
@@ -85,37 +102,7 @@ export function Header() {
 
           <Logo />
 
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-1 lg:flex">
-            {megaMenu.map((cat) => (
-              <button
-                key={cat.slug}
-                onMouseEnter={() => setActiveMenu(cat.slug)}
-                className={cn(
-                  "flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary",
-                  activeMenu === cat.slug && "bg-secondary",
-                )}
-              >
-                {cat.label}
-                <ChevronDown className="size-3.5 opacity-60" />
-              </button>
-            ))}
-            {primaryNav.slice(0, 3).map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                onMouseEnter={() => setActiveMenu(null)}
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary",
-                  l.label === "Sale" && "text-destructive",
-                )}
-              >
-                {l.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="ml-auto hidden max-w-md flex-1 lg:block">
+          <div className="ml-auto hidden max-w-xl flex-1 lg:block">
             <SearchBar />
           </div>
 
@@ -126,11 +113,11 @@ export function Header() {
             <Link
               href="/account/wishlist"
               aria-label="Wishlist"
-              className="relative hidden size-10 place-items-center rounded-full transition-colors hover:bg-secondary sm:grid"
+              className="relative hidden size-10 place-items-center rounded-md transition-colors hover:bg-secondary sm:grid"
             >
               <Heart className="size-5" />
               {wishCount > 0 && (
-                <span className="absolute right-1 top-1 grid size-4 place-items-center rounded-full bg-accent text-[10px] font-semibold text-accent-foreground">
+                <span className="absolute right-0.5 top-0.5 grid size-4 place-items-center rounded-full bg-accent text-[10px] font-bold text-accent-foreground">
                   {wishCount}
                 </span>
               )}
@@ -139,7 +126,7 @@ export function Header() {
             {/* Account */}
             {session?.user ? (
               <DropdownMenu>
-                <DropdownMenuTrigger className="grid size-10 place-items-center rounded-full outline-none transition-colors hover:bg-secondary">
+                <DropdownMenuTrigger className="grid size-10 place-items-center rounded-md outline-none transition-colors hover:bg-secondary">
                   <Avatar className="size-8">
                     <AvatarImage src={session.user.image ?? undefined} />
                     <AvatarFallback>
@@ -192,7 +179,7 @@ export function Header() {
               <Link
                 href="/login"
                 aria-label="Account"
-                className="grid size-10 place-items-center rounded-full transition-colors hover:bg-secondary"
+                className="grid size-10 place-items-center rounded-md transition-colors hover:bg-secondary"
               >
                 <User className="size-5" />
               </Link>
@@ -201,11 +188,11 @@ export function Header() {
             <button
               onClick={() => setCartOpen(true)}
               aria-label="Cart"
-              className="relative grid size-10 place-items-center rounded-full transition-colors hover:bg-secondary"
+              className="relative grid size-10 place-items-center rounded-md transition-colors hover:bg-secondary"
             >
               <ShoppingBag className="size-5" />
               {count > 0 && (
-                <span className="absolute right-0.5 top-0.5 grid size-4 place-items-center rounded-full bg-primary text-[10px] font-semibold text-primary-foreground">
+                <span className="absolute right-0.5 top-0.5 grid size-4 place-items-center rounded-full bg-accent text-[10px] font-bold text-accent-foreground">
                   {count}
                 </span>
               )}
@@ -213,9 +200,61 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile search */}
-        <div className="px-4 pb-3 lg:hidden">
-          <SearchBar />
+        {/* Row 2 — primary nav (desktop) */}
+        <nav className="hidden border-t lg:block">
+          <div className="mx-auto flex max-w-[1400px] items-center justify-center gap-1 px-4">
+            {megaMenu.map((cat) => (
+              <button
+                key={cat.slug}
+                onMouseEnter={() => setActiveMenu(cat.slug)}
+                className={cn(
+                  "flex items-center gap-1 border-b-2 border-transparent px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.1em] transition-colors hover:border-foreground",
+                  activeMenu === cat.slug && "border-foreground",
+                )}
+              >
+                {cat.label}
+                <ChevronDown className="size-3 opacity-50" />
+              </button>
+            ))}
+            {primaryNav.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                onMouseEnter={() => setActiveMenu(null)}
+                className={cn(
+                  "border-b-2 border-transparent px-4 py-3 text-[13px] font-semibold uppercase tracking-[0.1em] transition-colors hover:border-foreground",
+                  l.label === "Sale" && "text-accent hover:border-accent",
+                )}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+
+        {/* Mobile search + category strip */}
+        <div className="lg:hidden">
+          <div className="px-4 pb-2.5">
+            <SearchBar />
+          </div>
+          <div className="no-scrollbar flex gap-2 overflow-x-auto border-t px-4 py-2.5">
+            {storeCollections.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/category/${c.slug}`}
+                className="flex shrink-0 items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider"
+              >
+                <c.icon aria-hidden className="size-3.5" />
+                {c.label}
+              </Link>
+            ))}
+            <Link
+              href="/sale"
+              className="flex shrink-0 items-center rounded-full bg-accent px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-accent-foreground"
+            >
+              Sale
+            </Link>
+          </div>
         </div>
 
         {/* Mega menu panel */}
@@ -256,7 +295,7 @@ function MegaMenuPanel({
       <div className="mx-auto grid max-w-[1400px] grid-cols-[1fr_1fr_1fr_1.2fr] gap-8 px-4 py-8">
         {cat.columns.map((col) => (
           <div key={col.title}>
-            <h4 className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+            <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.16em] text-accent">
               {col.title}
             </h4>
             <ul className="space-y-2.5">
@@ -278,7 +317,7 @@ function MegaMenuPanel({
           <Link
             href={`/category/${cat.slug}`}
             onClick={onClose}
-            className="text-sm font-medium underline-offset-4 hover:underline"
+            className="text-[13px] font-bold uppercase tracking-[0.1em] underline-offset-4 hover:underline"
           >
             Shop all {cat.label} →
           </Link>
@@ -286,7 +325,7 @@ function MegaMenuPanel({
             <Link
               href={cat.featured.href}
               onClick={onClose}
-              className="group mt-4 block overflow-hidden rounded-lg"
+              className="group mt-4 block overflow-hidden rounded-md"
             >
               <div
                 className="aspect-[4/3] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"

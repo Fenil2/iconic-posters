@@ -20,6 +20,15 @@ export interface LocalCartItem {
   stock: number;
 }
 
+/**
+ * What a caller must hand to `addItem`. Everything the drawer renders — name,
+ * slug, image, price — is required, so a call site physically cannot create the
+ * nameless ₹0 line the old `Partial<>` signature allowed. Quantity defaults to
+ * 1 and stock to 99 (the server re-checks real stock at checkout).
+ */
+export type AddItemInput = Omit<LocalCartItem, "quantity" | "stock"> &
+  Partial<Pick<LocalCartItem, "quantity" | "stock">>;
+
 interface CartState {
   items: LocalCartItem[];
   add: (item: LocalCartItem) => void;
@@ -71,7 +80,25 @@ export const useCartStore = create<CartState>()(
         })),
       clear: () => set({ items: [] }),
     }),
-    { name: "pulse-cart" },
+    {
+      name: "pulse-cart",
+      /*
+       * v1 drops lines saved by the old quick-add, which persisted only a
+       * productId — they rehydrate as nameless ₹0 rows with a broken image and
+       * can never be checked out. Bumping the version runs this once per
+       * browser; new lines always carry full product data.
+       */
+      version: 1,
+      migrate: (persisted) => {
+        const state = persisted as CartState | undefined;
+        return {
+          ...(state ?? { items: [] }),
+          items: (state?.items ?? []).filter(
+            (i) => i && i.name?.trim() && i.unitPrice > 0,
+          ),
+        } as CartState;
+      },
+    },
   ),
 );
 
@@ -90,18 +117,9 @@ export function useCart() {
   });
 
   const addItem = useCallback(
-    (partial: Partial<LocalCartItem> & { productId: string }) => {
+    (input: AddItemInput) => {
       startTransition(() => {
-        store.add({
-          quantity: 1,
-          name: partial.name ?? "",
-          slug: partial.slug ?? "",
-          image: partial.image ?? "/placeholder-poster.jpg",
-          unitPrice: partial.unitPrice ?? 0,
-          mrp: partial.mrp ?? 0,
-          stock: partial.stock ?? 99,
-          ...partial,
-        });
+        store.add({ quantity: 1, stock: 99, ...input });
         toast.success("Added to bag");
       });
     },

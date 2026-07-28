@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import { Geist, Geist_Mono, Oswald } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { Providers } from "@/components/providers";
 import { Analytics } from "@/components/analytics/analytics";
@@ -18,12 +18,12 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-// Distinctive editorial display serif for the wordmark and headlines.
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// Condensed poster grotesque for headlines — matches the stencil ICONIK mark.
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
   display: "swap",
-  axes: ["opsz", "SOFT", "WONK"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -76,7 +76,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
         <JsonLd

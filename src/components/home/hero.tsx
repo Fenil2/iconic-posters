@@ -28,7 +28,7 @@ export function Hero({ slides }: HeroProps) {
   const slide = count ? slides[index] : null;
 
   return (
-    <section className="relative flex h-[78vh] min-h-[520px] w-full items-center overflow-hidden bg-primary">
+    <section className="relative flex h-[72vh] min-h-[480px] w-full items-center overflow-hidden bg-black">
       <AnimatePresence mode="sync">
         {slide && (
           <motion.div
@@ -46,14 +46,14 @@ export function Hero({ slides }: HeroProps) {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/20" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4">
         <div className="max-w-2xl text-white">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-white/70">
+          <p className="mb-5 inline-flex items-center bg-accent px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.24em] text-accent-foreground">
             Iconik Posters
           </p>
-          <h1 className="font-serif text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl">
+          <h1 className="font-display text-5xl font-bold uppercase leading-[0.92] tracking-[0.005em] sm:text-7xl lg:text-8xl">
             Your Walls.
             <br />
             Your Story.
@@ -62,21 +62,21 @@ export function Hero({ slides }: HeroProps) {
             Premium posters that bring your favourite movies, anime, games,
             cars, music and iconic moments to life.
           </p>
-          <p className="mt-4 text-sm font-medium uppercase tracking-[0.18em] text-white/60">
+          <p className="mt-4 text-xs font-bold uppercase tracking-[0.22em] text-white/60">
             Designed to Impress. Printed to Last.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
               href="/shop"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-medium text-black transition-transform hover:scale-[1.02] active:scale-100"
+              className="group inline-flex items-center gap-2 rounded-sm bg-accent px-9 py-4 text-xs font-bold uppercase tracking-[0.14em] text-accent-foreground transition-transform hover:scale-[1.02] active:scale-100"
             >
               Shop Now
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <Link
               href="/collections"
-              className="inline-flex items-center rounded-full border border-white/40 px-8 py-3.5 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/10"
+              className="inline-flex items-center rounded-sm border border-white/50 px-9 py-4 text-xs font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-black"
             >
               Explore Collections
             </Link>
@@ -91,8 +91,8 @@ export function Hero({ slides }: HeroProps) {
               key={s.id}
               onClick={() => setIndex(i)}
               aria-label={`Background ${i + 1}`}
-              className={`h-1.5 rounded-full transition-all ${
-                i === index ? "w-8 bg-white" : "w-4 bg-white/40"
+              className={`h-1 transition-all ${
+                i === index ? "w-10 bg-accent" : "w-5 bg-white/40"
               }`}
             />
           ))}

@@ -34,7 +34,7 @@ export function RatingStars({
           {[0, 1, 2, 3, 4].map((i) => (
             <Star
               key={i}
-              className={cn(dim, "fill-accent text-accent")}
+              className={cn(dim, "fill-warning text-warning")}
               strokeWidth={1.5}
             />
           ))}

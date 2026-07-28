@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { BrandMark } from "@/components/shared/brand-mark";
 
 /** Manifest PWA icon (512×512), generated on the fly. */
 export function GET() {
@@ -11,14 +12,10 @@ export function GET() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0a0a0a",
-          color: "#fafaf8",
-          fontSize: 300,
-          fontWeight: 700,
-          fontFamily: "serif",
+          background: "#000000",
         }}
       >
-        I<span style={{ color: "#c08a2d" }}>.</span>
+        <BrandMark width={260} />
       </div>
     ),
     { width: 512, height: 512 },
