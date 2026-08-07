@@ -327,10 +327,12 @@ function MegaMenuPanel({
               onClick={onClose}
               className="group mt-4 block overflow-hidden rounded-md"
             >
-              <div
-                className="aspect-[4/3] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${cat.featured.image})` }}
-              />
+              <div className="relative grid aspect-[4/3] place-items-center overflow-hidden bg-foreground text-background transition-colors group-hover:bg-accent group-hover:text-accent-foreground">
+                <cat.icon
+                  aria-hidden
+                  className="size-12 transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
               <p className="mt-2 text-sm font-medium">{cat.featured.label}</p>
             </Link>
           )}

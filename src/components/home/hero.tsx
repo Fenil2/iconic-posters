@@ -29,8 +29,13 @@ export function Hero({ slides }: HeroProps) {
 
   return (
     <section className="relative flex h-[72vh] min-h-[480px] w-full items-center overflow-hidden bg-black">
+      {/* Brand backdrop — visible until a banner with artwork is published. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-br from-accent/30 via-black to-black"
+      />
       <AnimatePresence mode="sync">
-        {slide && (
+        {slide?.image && (
           <motion.div
             key={slide.id}
             initial={{ opacity: 0, scale: 1.06 }}

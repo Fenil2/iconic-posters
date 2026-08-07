@@ -29,13 +29,17 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+/**
+ * Shown until the admin adds hero banners in `/admin/banners`. Imagery is
+ * intentionally left blank — the hero and the editorial split fall back to
+ * brand typography rather than borrowed photography.
+ */
 const FALLBACK_BANNERS: BannerData[] = [
   {
     id: "f1",
     title: "Movie Wall",
     subtitle: "Cult classics and blockbuster art.",
-    image:
-      "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1600&q=80",
+    image: null,
     link: "/category/movies",
     ctaLabel: "Shop Movies",
   },
@@ -43,8 +47,7 @@ const FALLBACK_BANNERS: BannerData[] = [
     id: "f2",
     title: "Level Up Your Setup",
     subtitle: "Gaming posters built for the battlestation.",
-    image:
-      "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&q=80",
+    image: null,
     link: "/category/gaming",
     ctaLabel: "Shop Gaming",
   },
@@ -52,8 +55,7 @@ const FALLBACK_BANNERS: BannerData[] = [
     id: "f3",
     title: "Machines & Legends",
     subtitle: "Supercars, superbikes and racing greats.",
-    image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=80",
+    image: null,
     link: "/category/cars-bikes",
     ctaLabel: "Shop Cars & Bikes",
   },
@@ -124,10 +126,14 @@ export default async function HomePage() {
               href={s.link ?? "/shop"}
               className="group relative aspect-[16/10] overflow-hidden rounded-md bg-black"
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url(${s.image})` }}
-              />
+              {s.image ? (
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${s.image})` }}
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-black to-black transition-transform duration-700 group-hover:scale-105" />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
               <div className="absolute bottom-0 p-6 text-white sm:p-8">
                 <h3 className="font-display text-2xl font-bold uppercase leading-none sm:text-4xl">

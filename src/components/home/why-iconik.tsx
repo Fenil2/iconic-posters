@@ -22,16 +22,15 @@ export function WhyIconik() {
           <Link
             key={c.slug}
             href={`/category/${c.slug}`}
-            className={`group relative overflow-hidden rounded-md bg-secondary ${
+            className={`group relative overflow-hidden rounded-md bg-foreground text-background ${
               i % 3 === 0 ? "aspect-[4/5]" : "aspect-square"
             }`}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: `url(${c.image})` }}
+            <c.icon
+              aria-hidden
+              className="absolute -right-4 -top-4 size-28 text-background/10 transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
-            <span className="absolute bottom-4 left-4 flex items-center gap-2 font-display text-sm font-bold uppercase tracking-[0.12em] text-white">
+            <span className="absolute bottom-4 left-4 flex items-center gap-2 font-display text-sm font-bold uppercase tracking-[0.12em]">
               <c.icon aria-hidden className="size-4 shrink-0 text-accent" />
               {c.label}
             </span>

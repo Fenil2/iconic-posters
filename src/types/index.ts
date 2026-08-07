@@ -91,7 +91,8 @@ export interface BannerData {
   id: string;
   title: string;
   subtitle: string | null;
-  image: string;
+  /** Null when no artwork has been uploaded — render a brand backdrop instead. */
+  image: string | null;
   link: string | null;
   ctaLabel: string | null;
 }

@@ -25,13 +25,7 @@ export default function AuthLayout({
       </div>
 
       <div className="relative hidden overflow-hidden bg-primary lg:block">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=1200&q=80)",
-          }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/35 via-primary to-black" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
         <div className="absolute bottom-0 p-12 text-white">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-white/60">

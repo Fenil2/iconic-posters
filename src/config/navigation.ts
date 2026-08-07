@@ -30,17 +30,13 @@ export interface MegaMenuCategory {
   slug: string;
   icon: IconType;
   columns: MegaMenuColumn[];
-  featured?: { label: string; href: string; image: string };
+  featured?: { label: string; href: string };
 }
-
-const UNSPLASH = (id: string, w = 600) =>
-  `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 
 export interface StoreCollection {
   label: string;
   slug: string;
   icon: IconType;
-  image: string;
   blurb: string;
 }
 
@@ -54,77 +50,66 @@ export const storeCollections: StoreCollection[] = [
     label: "Movies",
     slug: "movies",
     icon: Clapperboard,
-    image: UNSPLASH("1489599849927-2ee91cede3ba"),
     blurb: "Cult classics, blockbusters and silver-screen icons.",
   },
   {
     label: "Gaming",
     slug: "gaming",
     icon: Gamepad2,
-    image: UNSPLASH("1542751371-adc38448a05e"),
     blurb: "Legendary titles and setup-defining art for your battlestation.",
   },
   {
     label: "Anime",
     slug: "anime",
     icon: Bolt,
-    image: UNSPLASH("1578632767115-351597cf2477"),
     blurb: "Bold character art, iconic scenes and minimal anime prints.",
   },
   {
     label: "Cars & Bikes",
     slug: "cars-bikes",
     icon: Car,
-    image: UNSPLASH("1503376780353-7e6692767b70"),
     blurb: "Supercars, JDM legends, superbikes and racing greats.",
   },
   {
     label: "Music",
     slug: "music",
     icon: Music4,
-    image: UNSPLASH("1511671782779-c97d3d27a1d4"),
     blurb: "Album art, tour posters and legends of every genre.",
   },
   {
     label: "Quotes",
     slug: "quotes",
     icon: Quote,
-    image: UNSPLASH("1455390582262-044cdead277a"),
     blurb: "Typography that says exactly what you needed to hear.",
   },
   {
     label: "Love",
     slug: "love",
     icon: Heart,
-    image: UNSPLASH("1518199266791-5375a83190b7"),
     blurb: "Warm, romantic prints for shared spaces and gifting.",
   },
   {
     label: "Aesthetic",
     slug: "aesthetic",
     icon: Sparkles,
-    image: UNSPLASH("1502691876148-a84978e59af8"),
     blurb: "Mood-led art for interiors that photograph beautifully.",
   },
   {
     label: "Space",
     slug: "space",
     icon: Rocket,
-    image: UNSPLASH("1462331940025-496dfbfc7564"),
     blurb: "Galaxies, missions and the quiet enormity of it all.",
   },
   {
     label: "Sports",
     slug: "sports",
     icon: Trophy,
-    image: UNSPLASH("1461896836934-ffe607ba8211"),
     blurb: "Match-defining moments and the athletes who made them.",
   },
   {
     label: "Minimal",
     slug: "minimal",
     icon: Shapes,
-    image: UNSPLASH("1497366216548-37526070297c"),
     blurb: "Line art, shapes and restraint — for walls that whisper.",
   },
 ];
@@ -161,7 +146,6 @@ export const megaMenu: MegaMenuCategory[] = [
     featured: {
       label: "Cult Classics Series",
       href: "/category/movies?theme=classic",
-      image: UNSPLASH("1489599849927-2ee91cede3ba"),
     },
   },
   {
@@ -189,7 +173,6 @@ export const megaMenu: MegaMenuCategory[] = [
     featured: {
       label: "Battlestation Picks",
       href: "/category/gaming?theme=neon",
-      image: UNSPLASH("1542751371-adc38448a05e"),
     },
   },
   {
@@ -217,7 +200,6 @@ export const megaMenu: MegaMenuCategory[] = [
     featured: {
       label: "Fan-favourite Anime",
       href: "/category/anime?theme=shonen",
-      image: UNSPLASH("1578632767115-351597cf2477"),
     },
   },
   {
@@ -228,10 +210,13 @@ export const megaMenu: MegaMenuCategory[] = [
       {
         title: "Cars",
         links: [
-          { label: "Supercars", href: "/category/cars-bikes?theme=supercar" },
-          { label: "JDM Legends", href: "/category/cars-bikes?theme=jdm" },
-          { label: "Muscle Cars", href: "/category/cars-bikes?theme=muscle" },
-          { label: "Formula 1", href: "/category/cars-bikes?theme=f1" },
+          { label: "Toyota", href: "/category/cars-bikes?theme=toyota" },
+          { label: "Porsche", href: "/category/cars-bikes?theme=porsche" },
+          { label: "Nissan", href: "/category/cars-bikes?theme=nissan" },
+          { label: "Ford", href: "/category/cars-bikes?theme=ford" },
+          { label: "Dodge", href: "/category/cars-bikes?theme=dodge" },
+          { label: "Bugatti", href: "/category/cars-bikes?theme=bugatti" },
+          { label: "BMW", href: "/category/cars-bikes?theme=bmw" },
         ],
       },
       {
@@ -245,8 +230,7 @@ export const megaMenu: MegaMenuCategory[] = [
     ],
     featured: {
       label: "Garage Wall Series",
-      href: "/category/cars-bikes?theme=supercar",
-      image: UNSPLASH("1503376780353-7e6692767b70"),
+      href: "/category/cars-bikes",
     },
   },
   {
@@ -274,7 +258,6 @@ export const megaMenu: MegaMenuCategory[] = [
     featured: {
       label: "Interior-ready Prints",
       href: "/category/aesthetic?theme=warm",
-      image: UNSPLASH("1502691876148-a84978e59af8"),
     },
   },
 ];
